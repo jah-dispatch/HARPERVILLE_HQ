@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harperville™ | Log Entry</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="noise"></div>
+
+    <nav style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+        <a href="../ledger.html" class="exit-link"><i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER</a>
+    </nav>
+
+    <main class="container" style="max-width: 800px; padding-top: 6rem;">
+        
+        <header class="post-header">
+            <h1 class="post-title">Introductory Blog Post</h1>
+            
+            <div class="status-strip">
+                
+                <div class="status-item">
+                    <span class="status-label">LOG DATE</span>
+                    <span class="status-value">NOV 23, 2025</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-label">ESPRESSO</span>
+                    <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 7 SHOTS—srsly!</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-label">WEATHER</span>
+                    <span class="status-value">Foggy Spectrals Expected in Evening</span>
+                </div>
+
+                <div class="status-item mood-box" data-rating="7">
+                    <span class="status-label">MOOD</span>
+                    <span class="status-value" id="mood-display">CALCULATING...</span>
+                </div>
+
+            </div>
+        </header>
+
+        <article class="post-content">
+            <p class="lead-paragraph">
+                This is the opening hook. It should be bold and set the stakes.
+            </p>
+
+            <p>
+                <h1>Harperville™ Layout Test: Typography & Elements</h1>
+
+<p>Welcome to the Harperville™ Blog test page. The purpose of this post is to verify the visual styling of our new layout. We need to ensure that headers, paragraphs, and lists display correctly across desktop and mobile devices.</p>
+
+<hr>
+
+<h3>Testing Header Level 3</h3>
+
+<p>This paragraph demonstrates standard body text. It is used to check line height and font legibility. We want to make sure that the reading experience is seamless for the Harperville community. <strong>This sentence is bolded for emphasis</strong>, while <em>this sentence is italicized for stylistic flair</em>.</p>
+
+<p>Here is an example of a <a href="#">standard hyperlink</a> to see how the color changes on hover.</p>
+
+<p><strong>Unordered List Test:</strong></p>
+<ul>
+    <li>Harperville™ Item A</li>
+    <li>Harperville™ Item B</li>
+    <li>Harperville™ Item C</li>
+</ul>
+
+<p><strong>Ordered List Test:</strong></p>
+<ol>
+    <li>First step in the process</li>
+    <li>Second step in the process</li>
+    <li>Third step in the process</li>
+</ol>
+
+<blockquote>
+    <p>"This is a blockquote example. We use this formatting to highlight important testimonials or key takeaways within an article. It should stand out distinctively from the rest of the body text."</p>
+</blockquote>
+
+<h4>Testing Header Level 4</h4>
+
+<p>If you are reading this, the test was successful. Thank you for visiting the Harperville™ technical preview.</p>
+            
+          
+
+        </article>
+
+        <footer class="post-footer">
+            <img src="../assets/images/harperville-logo.png" alt="Signature" class="footer-sig">
+            <p>END OF LOG</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const moodBox = document.querySelector('.mood-box');
+            const display = document.getElementById('mood-display');
+            const rating = parseInt(moodBox.getAttribute('data-rating'));
+            
+            let emoji = "😐"; // Default
+            
+            if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+            else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+            else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+            else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+            else if (rating === 10) emoji = "🦄 (Sovereign)";
+            
+            display.innerText = rating + "/10 " + emoji;
+        });
+    </script>
+</body>
+</html>
