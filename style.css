@@ -292,12 +292,12 @@ body {
     /* --- THE SOVEREIGN BACKGROUND STACK --- */
     /* We layer the gradient ON TOP of the image in one rule. */
     background-image:
-        /* LAYER 1 (Top): The Contrast Gradient */
+        /* LAYER 1 (Top): The Ghost Gradient */
         linear-gradient(
-            to bottom,               /* Gradient goes down */
-            rgba(2, 26, 18, 0.2) 0%, /* Top: Mostly see-through deep emerald */
-            rgba(0, 0, 0, 0.6) 50%,  /* Middle: Getting darker */
-            rgba(0, 0, 0, 0.9) 100%  /* Bottom: Almost solid black for text contrast */
+            to bottom,              
+            rgba(2, 26, 18, 0.0) 0%,   /* Top: Completely transparent (Crystal clear) */
+            rgba(2, 26, 18, 0.1) 50%,  /* Middle: Very subtle hint of emerald */
+            rgba(0, 0, 0, 0.6) 100%    /* Bottom: Just dark enough to read the white text */
         ),
         /* LAYER 2 (Bottom): The Image */
         url('assets/images/jackofharperville.png');
