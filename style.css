@@ -21,16 +21,37 @@
     box-sizing: border-box;
 }
 
+/* --- THE GLOBAL BODY (Default: Free & Scrollable) --- */
 body {
     background-color: var(--void-emerald);
     color: var(--text-ivory);
     font-family: var(--font-main);
-    height: 100vh;
-    overflow: hidden; /* No scrolling on the landing page */
+    
+    /* The Reset */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* The Freedom Settings */
+    min-height: 100vh; /* At least full screen, but can grow */
+    overflow-y: auto;  /* Scroll if you need to */
+    overflow-x: hidden; /* No side-wobble */
+    position: relative;
+}
+
+/* --- THE LANDING PAGE LOCK (Apply ONLY to index.html) --- */
+body.cinematic-lock {
+    height: 100vh; /* Force exactly one screen high */
+    overflow: hidden; /* Kill the scroll */
+    
+    /* Center the content perfectly */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* Delete the old .allow-scroll class if you see it down below. 
+   We don't need it anymore because the default is now scrolling. */
 
 /* --- THE AESTHETIC --- */
 
