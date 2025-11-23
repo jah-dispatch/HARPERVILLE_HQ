@@ -3,21 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harperville™ | Log Entry</title>
+    <title>Harperville™ | FILL IN TITLE HERE </title>
+    
     <link rel="stylesheet" href="/HARPERVILLE_HQ/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 1. Force the page to allow scrolling */
+        html, body {
+            height: auto !important;
+            min-height: 100vh;
+            overflow-y: auto !important; /* Forces scrollbar */
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Fallback color if noise fails */
+        }
+
+        /* 2. Make sure the background noise stays still while you scroll */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; /* Puts it behind text */
+            pointer-events: none; /* Lets you click through it */
+            /* Ensure your .noise class in style.css has background-image set */
+        }
+
+        /* 3. Ensure the container centers but allows growth */
+        main.container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 20px 4rem 20px; /* Top, Right, Bottom, Left */
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 4. Fix Navigation to top left */
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        /* 5. Ensure text wraps correctly on mobile */
+        .post-content p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        a.exit-link {
+            text-decoration: none;
+            color: #d4af37; /* Gold fallback */
+            font-family: monospace;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+
     <div class="noise"></div>
 
-    <nav style="position: absolute; top: 20px; left: 20px; z-index: 10;">
-        <a href="/HARPERVILLE_HQ/ledger.html" class="exit-link"><i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER</a>
+    <nav>
+        <a href="/HARPERVILLE_HQ/ledger.html" class="exit-link">
+            <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
+        </a>
     </nav>
 
-    <main class="container" style="max-width: 800px; padding-top: 6rem;">
+    <main class="container">
         
         <header class="post-header">
-            <h1 class="post-title">TITLE OF THE ENTRY GOES HERE</h1>
+            <h1 class="post-title">TITLE GOES HERE</h1>
             
             <div class="status-strip">
                 
@@ -28,15 +88,15 @@
 
                 <div class="status-item">
                     <span class="status-label">ESPRESSO</span>
-                    <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 8 Shots—SRSLY THO!</span>
+                    <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 2 SHOTS</span>
                 </div>
 
                 <div class="status-item">
                     <span class="status-label">WEATHER</span>
-                    <span class="status-value">Spectral Storm Expected by the 13th Hour</span>
+                    <span class="status-value">Flying Monkeys on Extreme Alert</span>
                 </div>
 
-                <div class="status-item mood-box" data-rating="4">
+                <div class="status-item mood-box" data-rating="1">
                     <span class="status-label">MOOD</span>
                     <span class="status-value" id="mood-display">CALCULATING...</span>
                 </div>
@@ -46,22 +106,17 @@
 
         <article class="post-content">
             <p class="lead-paragraph">
-                This is the opening hook. It should be bold and set the stakes.
+                Lead Paragraph goes here.
             </p>
 
             <p>
-                This is the body text. Here is where the "Soul Talk" happens. 
-                Use &lt;br&gt; tags for line breaks if needed.
+                This is content for the blog. Just using it <b>in case I need TO CALL SOME HORSESHIT!!</b> out against a certain number of people. 
+                <br> 
+                Placeholder text starts here: Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
             </p>
-
-            <h3>Subheading for Structure</h3>
-            <p>
-                More text here. Remember: Money talks, bullshit walks. 
-                Keep the sentences Sovereign.
-            </p>
-            
+                        
             <blockquote>
-                "This is a pull quote for impact."
+                "Blockquote goes here inside these quotation marks."
             </blockquote>
 
         </article>
@@ -77,17 +132,21 @@
         document.addEventListener("DOMContentLoaded", function() {
             const moodBox = document.querySelector('.mood-box');
             const display = document.getElementById('mood-display');
-            const rating = parseInt(moodBox.getAttribute('data-rating'));
             
-            let emoji = "😐"; // Default
-            
-            if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
-            else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
-            else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
-            else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
-            else if (rating === 10) emoji = "🦄 (Sovereign)";
-            
-            display.innerText = rating + "/10 " + emoji;
+            // Check if moodBox exists to prevent errors
+            if(moodBox) {
+                const rating = parseInt(moodBox.getAttribute('data-rating'));
+                
+                let emoji = "😐"; // Default
+                
+                if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+                else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+                else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+                else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+                else if (rating === 10) emoji = "🦄 (Sovereign)";
+                
+                display.innerText = rating + "/10 " + emoji;
+            }
         });
     </script>
 </body>
