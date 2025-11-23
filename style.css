@@ -34,17 +34,69 @@ body {
 
 /* --- THE AESTHETIC --- */
 
-/* The logo effect: 3D Gold with Ruby Shadow */
-.logo-text {
-    font-size: 4rem;
-    font-weight: 900;
-    letter-spacing: -2px;
-    background: linear-gradient(135deg, var(--oz-gold), #b8860b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(4px 4px 0px var(--ruby-slipper));
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
+/* --- THE WICKED SHIMMER EFFECT --- */
+
+/* The container sets the stage for the spectral magic */
+.spectral-logo-container {
+    position: relative;
+    width: 80%; /* Adjust width as needed based on your actual PNG size */
+    max-width: 600px; /* Ensures it doesn't get too huge on big screens */
+    margin: 0 auto 1rem auto; /* Centers it */
+    
+    /* THE MAGIC: This uses the image itself as a mask. 
+       Anything outside the letters becomes invisible. */
+    -webkit-mask-image: url('assets/images/harperville-logo.png');
+    mask-image: url('assets/images/harperville-logo.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* The actual image sits at the bottom layer */
+.main-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* We dim the base image slightly so the glimmer pops more */
+    filter: brightness(0.8) contrast(1.2); 
+}
+
+/* The "Comet" - A pseudo-element that slides across the top */
+.spectral-logo-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 50%; /* The width of the glimmer band */
+    height: 100%;
+    
+    /* The Wicked Gradient: Elphaba Green to Glinda Pink to Oz Gold */
+    background: linear-gradient(
+        120deg, 
+        transparent 0%, 
+        var(--elphaba-green) 30%, 
+        var(--glinda-pink) 50%, 
+        var(--oz-gold) 70%, 
+        transparent 100%
+    );
+    
+    /* Blending it to look like light */
+    mix-blend-mode: overlay; 
+    opacity: 0.8;
+    
+    /* The Animation */
+    animation: comet-pass 6s ease-in-out infinite; /* Runs every 6 seconds */
+}
+
+/* Define the animation movement */
+@keyframes comet-pass {
+    0% { left: -100%; opacity: 0; }
+    20% { opacity: 1; }
+    50% { left: 150%; opacity: 0; } /* Moves all the way across and fades out */
+    100% { left: 150%; opacity: 0; } /* Pauses before restarting */
 }
 
 .subtitle {
