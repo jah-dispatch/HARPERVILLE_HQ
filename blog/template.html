@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* 1. Force the page to allow scrolling */
+        /* 1. Force the page to allow scrolling & Apply Void-Emerald Background */
         html, body {
             height: auto !important;
             min-height: 100vh;
-            overflow-y: auto !important; /* Forces scrollbar */
+            overflow-y: auto !important;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a; /* Fallback color if noise fails */
+            
+            /* --- THE COLOR FIX --- */
+            background-color: #000000; /* Deep black fallback */
+            /* This creates the "Void Emerald" glow */
+            background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%); 
+            background-attachment: fixed; /* Keeps the glow centered while you scroll */
         }
 
         /* 2. Make sure the background noise stays still while you scroll */
@@ -26,9 +31,9 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -1; /* Puts it behind text */
-            pointer-events: none; /* Lets you click through it */
-            /* Ensure your .noise class in style.css has background-image set */
+            z-index: -1; 
+            pointer-events: none;
+            opacity: 0.05; /* Adjust this to make the grain subtler or stronger */
         }
 
         /* 3. Ensure the container centers but allows growth */
