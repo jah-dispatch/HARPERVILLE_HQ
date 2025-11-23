@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harperville™ | Why I Hate Silence</title>
+    <link rel="stylesheet" href="/HARPERVILLE_HQ/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="noise"></div>
+
+    <nav style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+        <a href="/HARPERVILLE_HQ/ledger.html" class="exit-link"><i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER</a>
+    </nav>
+
+    <main class="container" style="max-width: 800px; padding-top: 6rem;">
+        
+        <header class="post-header">
+            <h1 class="post-title">WHY I HATE SILENCE</h1>
+            
+            <div class="status-strip">
+                
+                <div class="status-item">
+                    <span class="status-label">LOG DATE</span>
+                    <span class="status-value">NOV 23, 2025</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-label">ESPRESSO</span>
+                    <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 2 SHOTS</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-label">WEATHER</span>
+                    <span class="status-value">Flying Monkeys on Extreme Alert</span>
+                </div>
+
+                <div class="status-item mood-box" data-rating="1">
+                    <span class="status-label">MOOD</span>
+                    <span class="status-value" id="mood-display">CALCULATING...</span>
+                </div>
+
+            </div>
+        </header>
+
+        <article class="post-content">
+            <p class="lead-paragraph">
+                If you think silence is the answer to my affection, you're so very wrong!
+            </p>
+
+            <p>
+                This is content for the blog. Just using it <b>in case I need TO CALL SOME HORSESHIT!!</b> out against a certain number of people. 
+                <br> Placeholder text starts here: 
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+
+            </p>
+
+            <h3>Subheading for Structure</h3>
+            <p>
+                More text here. Remember: Money talks, bullshit walks. 
+                Keep the sentences Sovereign.
+            </p>
+            
+            <blockquote>
+                "Don't fucking ignore me!!"
+            </blockquote>
+
+        </article>
+
+        <footer class="post-footer">
+            <img src="/HARPERVILLE_HQ/assets/images/harperville-logo.png" alt="Signature" class="footer-sig">
+            <p>END OF LOG</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const moodBox = document.querySelector('.mood-box');
+            const display = document.getElementById('mood-display');
+            const rating = parseInt(moodBox.getAttribute('data-rating'));
+            
+            let emoji = "😐"; // Default
+            
+            if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+            else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+            else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+            else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+            else if (rating === 10) emoji = "🦄 (Sovereign)";
+            
+            display.innerText = rating + "/10 " + emoji;
+        });
+    </script>
+</body>
+</html>
