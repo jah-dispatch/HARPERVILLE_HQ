@@ -279,45 +279,58 @@ body {
 
 /* --- SPECIFIC CARD SIZING (The "Tetris" Logic) --- */
 
+/* --- PROFILE CARD SPECIFICS --- */
+
 /* Profile: Big box, Top Left */
 .profile-card {
     grid-column: span 2;
     grid-row: span 2;
-    padding: 0; /* Remove padding so image hits the edges */
     overflow: hidden; /* Ensure rounded corners clip the image */
-}
-
-/* The Sovereign Image Container */
-#sovereign-profile-image {
-    /* Install the masterpiece */
-    background-image: url('assets/images/jackofharperville.png');
-    
-    /* Scaling mechanics */
-    background-size: cover; /* Ensures it fills the box without stretching */
-    background-position: center center; /* Focus on the middle */
-    background-repeat: no-repeat;
-    
-    /* The "Glass" Overlay (Crucial for making the text below pop and adding depth) */
     position: relative;
+    color: var(--text-ivory);
+
+    /* --- THE SOVEREIGN BACKGROUND STACK --- */
+    /* We layer the gradient ON TOP of the image in one rule. */
+    background-image:
+        /* LAYER 1 (Top): The Contrast Gradient */
+        linear-gradient(
+            to bottom,               /* Gradient goes down */
+            rgba(2, 26, 18, 0.2) 0%, /* Top: Mostly see-through deep emerald */
+            rgba(0, 0, 0, 0.6) 50%,  /* Middle: Getting darker */
+            rgba(0, 0, 0, 0.9) 100%  /* Bottom: Almost solid black for text contrast */
+        ),
+        /* LAYER 2 (Bottom): The Image */
+        url('assets/images/jackofharperville.png');
+
+    /* Scaling mechanics */
+    background-size: cover; /* Fills the box without stretching distorting */
+    background-position: center top; /* Focuses on the top center (best for portraits) */
+    background-repeat: no-repeat;
 }
 
-/* Add a subtle dark glass layer over the image so it doesn't clash with the dashboard */
-#sovereign-profile-image::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    /* A very light dark-emerald tint */
-    background: linear-gradient(to bottom right, rgba(2, 26, 18, 0.2), rgba(2, 26, 18, 0.4));
-    /* The glass blur effect */
-    backdrop-filter: blur(2px); /* Just a tiny blur for depth */
+/* Adjusting internal alignment for the profile text */
+.profile-content-align {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes the text down into the dark gradient area */
+    padding-bottom: 1rem; /* A little breathing room at the bottom edge */
 }
 
+/* Ensure the text styling pops against the new dark background */
 .profile-card h3 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Made it slightly bigger */
     background: linear-gradient(90deg, var(--oz-gold), #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8)); /* Extra shadow for readability */
+}
+
+.profile-card .bio {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 80%; /* Keeps the text from getting too wide */
 }
 
 .profile-card .role {
