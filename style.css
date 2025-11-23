@@ -149,6 +149,40 @@ body.cinematic-lock {
     font-style: italic;
 }
 
+/* --- THE WINNER'S SHIMMER (Money Talks) --- */
+.gold-pulse {
+    /* The Metallic Gradient Stack */
+    background: linear-gradient(
+        to right,
+        #bf953f, /* Dark Gold */
+        #fcf6ba, /* The High Shine (White-Gold) */
+        #b38728, /* Medium Gold */
+        #fbf5b7, /* Another Shine */
+        #bf953f  /* Back to Dark */
+    );
+    
+    /* Make the background huge so we can move it */
+    background-size: 200% auto;
+    
+    /* Clip it to the text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* The Animation: A slow, confident roll of light */
+    animation: gold-shimmer 3s linear infinite;
+    
+    /* The Glow: A subtle aura of wealth */
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+    
+    display: inline-block; /* Keeps the glint stable */
+}
+
+/* The Physics Engine */
+@keyframes gold-shimmer {
+    to {
+        background-position: 200% center;
+    }
+}
 /* The Button: Glassmorphism */
 .btn-sovereign {
     text-decoration: none;
