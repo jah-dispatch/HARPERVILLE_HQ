@@ -157,3 +157,54 @@ body {
     opacity: 0.05;
     background: url('https://grainy-gradients.vercel.app/noise.svg');
 }
+/* --- THE BINARY CHOICE --- */
+
+.gate-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack them vertically */
+    gap: 1.5rem; /* Space between buttons */
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+/* Update the Sovereign Button (The Green Path) */
+.btn-sovereign {
+    /* existing styles remain, just ensuring these specifics */
+    background: rgba(2, 26, 18, 0.6); /* Deep Emerald Glass */
+    border: 1px solid var(--elphaba-green);
+    color: var(--elphaba-green);
+    font-weight: 700;
+    width: 300px; /* Uniform width */
+    text-align: center;
+}
+
+.btn-sovereign:hover {
+    background: var(--elphaba-green);
+    color: var(--void-emerald); /* Invert text on hover */
+    box-shadow: 0 0 30px var(--elphaba-green);
+}
+
+/* The Monkey Button (The Red Path) */
+.btn-monkey {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem; /* Smaller font - it's the "fine print" exit */
+    padding: 1rem 2rem;
+    width: 300px; /* Match width */
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    /* The Inversed/Warning Look */
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4); /* Ghostly text */
+    border: 1px solid rgba(230, 0, 38, 0.3); /* Dim Ruby border */
+}
+
+.btn-monkey:hover {
+    color: var(--ruby-slipper);
+    border-color: var(--ruby-slipper);
+    box-shadow: inset 0 0 20px rgba(230, 0, 38, 0.2); /* Inner red glow */
+    background: rgba(0,0,0,0.5);
+}
