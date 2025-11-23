@@ -726,3 +726,43 @@ html, body {
     max-width: 800px; /* Standard readable width */
     margin: 0 auto;   /* Centers the block horizontally */
 }
+/* --- THE DEFY GRAVITY ANIMATION (TRUE WEST) --- */
+
+#broomstick-ride {
+    position: fixed;
+    z-index: 9999;
+    width: 300px; /* Adjust based on your image size */
+    
+    /* Starting Position: Hiding in the South-East (Bottom-Right) */
+    bottom: -300px; 
+    right: -300px; /* Hiding off the right edge */
+    
+    /* Smooth movement */
+    pointer-events: none;
+}
+
+/* The Class that triggers the flight */
+.launch-sequence {
+    animation: western-sky 1.5s ease-in forwards;
+}
+
+@keyframes western-sky {
+    0% {
+        bottom: -300px;
+        right: -300px;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Appear quickly */
+    }
+    100% {
+        /* Fly to the Western Sky (Top-Left) */
+        bottom: 120%; /* Way up high */
+        right: 120%;  /* Way over to the left */
+        
+        /* Tilt nose-up towards the West */
+        /* Assuming your image is horizontal, handle-left */
+        transform: rotate(-25deg); 
+    }
+}

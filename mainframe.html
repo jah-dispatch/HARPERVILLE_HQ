@@ -14,7 +14,7 @@
         
         <header class="dashboard-header">
             <h2 class="system-status">SYSTEM: <span class="highlight">EN FLIGHT</span></h2>
-            <a href="index.html" class="exit-link"><i class="fa-solid fa-power-off"></i> DEFY GRAVITY!</a>
+            <a href="index.html" class="exit-link" id="gravity-link"><i class="fa-solid fa-power-off"></i> DEFY GRAVITY!</a>
         </header>
 
         <div class="bento-grid">
@@ -64,6 +64,20 @@
 
         </div>
     </main>
+<img id="broomstick-ride" src="assets/images/broomstick.png" alt="Levitation">
 
+    <script>
+        document.getElementById('gravity-link').addEventListener('click', function(e) {
+            e.preventDefault(); // Stop the exit for a moment
+            
+            // Trigger the animation
+            document.getElementById('broomstick-ride').classList.add('launch-sequence');
+            
+            // Wait 1.5 seconds, then exit
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
