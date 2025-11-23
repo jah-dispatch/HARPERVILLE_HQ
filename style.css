@@ -637,3 +637,37 @@ body {
     margin-bottom: 1rem;
     filter: grayscale(1);
 }
+/* --- LAYOUT & SCROLLING FIXES --- */
+
+/* 1. Ensure the main window allows scrolling */
+html, body {
+    height: auto !important; /* Overrides fixed height */
+    min-height: 100% !important;
+    overflow-y: auto !important; /* Forces scrollbar */
+    margin: 0;
+}
+
+/* 2. The Main Wrapper for the Blog Page */
+/* You must wrap your entire blog HTML in a div with this class */
+.blog-page-wrapper {
+    width: 100%;
+    min-height: 100vh; /* Fill at least the screen, but grow if needed */
+    height: auto;      /* Crucial: Allows the box to grow with text */
+    
+    /* Reset Flexbox centering so it doesn't lock in the middle */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to top, not center */
+    align-items: center;         /* Keeps content centered horizontally */
+    
+    padding: 4rem 1rem; /* Adds breathing room top/bottom/sides */
+    box-sizing: border-box;
+}
+
+/* 3. Container Width Control */
+/* Prevents the text from being too wide on large screens */
+.post-container {
+    width: 100%;
+    max-width: 800px; /* Standard readable width */
+    margin: 0 auto;   /* Centers the block horizontally */
+}
