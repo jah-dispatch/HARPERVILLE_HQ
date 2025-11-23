@@ -337,9 +337,11 @@ body {
     margin-right: 10px;
 }
 
-/* Music: Small box */
+/* Music: Spans 2 columns, taller height for the list view */
 .music-card {
     grid-column: span 2;
+    grid-row: span 2; /* Increased height so you can see the song list */
+    min-height: 450px; /* Force it to be tall enough for the player */
 }
 
 .icon-large {
