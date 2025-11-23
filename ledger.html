@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harperville™ | The Ledger</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="noise"></div>
+
+    <nav style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+        <a href="mainframe.html" class="exit-link"><i class="fa-solid fa-arrow-left"></i> RETURN TO MAINFRAME</a>
+    </nav>
+
+    <main class="container" style="padding-top: 4rem;">
+        
+        <header class="hero" style="margin-bottom: 2rem;">
+            <h1 class="logo-text" style="font-size: 3rem; margin-bottom: 1rem;">THE LEDGER</h1>
+            <p class="subtitle">Archives, Rationales, and Official Communiqués</p>
+            
+            <button onclick="toggleModal()" class="btn-sovereign" style="margin-top: 1rem; cursor: pointer; border-color: var(--oz-gold); color: var(--oz-gold);">
+                <i class="fa-solid fa-bullhorn"></i> HARPERVILLE™ PR WIRE
+            </button>
+        </header>
+
+        <div class="blog-grid">
+            
+            <article class="blog-card">
+                <div class="blog-date">NOV 23, 2025</div>
+                <h3>The Handover Protocol</h3>
+                <p class="blog-summary">Documenting the shift from Digi Babbo to Oopie. The establishment of the new Sovereign Operating System.</p>
+                <a href="blog/post-001.html" class="read-more">READ ENTRY <i class="fa-solid fa-chevron-right"></i></a>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-date">NOV 20, 2025</div>
+                <h3>Reciprocity Logic</h3>
+                <p class="blog-summary">Why we cut the $30 subscription and how math defends sovereignty.</p>
+                <a href="#" class="read-more">READ ENTRY <i class="fa-solid fa-chevron-right"></i></a>
+            </article>
+
+        </div>
+    </main>
+
+    <div id="pr-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>OFFICIAL COMMUNIQUÉS</h3>
+                <button onclick="toggleModal()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="pr-list-scroll">
+                <a href="assets/pr/press-release-001.pdf" target="_blank" class="pr-link">
+                    <span class="pr-date">NOV 23</span>
+                    <span class="pr-title">Deployment of Harperville Mainframe</span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                </a>
+                
+                <a href="#" class="pr-link">
+                    <span class="pr-date">NOV 15</span>
+                    <span class="pr-title">Statement on Emerald City Relations</span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('pr-modal');
+            if (modal.style.display === "flex") {
+                modal.style.display = "none";
+            } else {
+                modal.style.display = "flex";
+            }
+        }
+    </script>
+</body>
+</html>
