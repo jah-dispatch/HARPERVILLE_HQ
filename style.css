@@ -1,0 +1,107 @@
+/* --- THE PALETTE OF OZ & HARPERVILLE --- */
+:root {
+    /* The Canvas */
+    --void-emerald: #021a12; /* Almost black, deep forest green */
+    --text-ivory: #f0f0f0;
+    
+    /* The Wicked Spectrum */
+    --glinda-pink: #ff00cc;
+    --elphaba-green: #39ff14;
+    --oz-gold: #ffd700;
+    --ruby-slipper: #e60026;
+    
+    /* The Font Stack */
+    --font-main: 'Helvetica Neue', Arial, sans-serif; /* We keep it Swiss & Clean */
+}
+
+/* --- THE RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--void-emerald);
+    color: var(--text-ivory);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden; /* No scrolling on the landing page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- THE AESTHETIC --- */
+
+/* The logo effect: 3D Gold with Ruby Shadow */
+.logo-text {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, var(--oz-gold), #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(4px 4px 0px var(--ruby-slipper));
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-bottom: 4rem;
+}
+
+.container {
+    text-align: center;
+    z-index: 2; /* Sits above the noise */
+    position: relative;
+}
+
+/* The Motto: The "Wicked" Gradient Text */
+.provocation h2 {
+    font-size: 3rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.highlight {
+    background: linear-gradient(90deg, var(--elphaba-green), var(--glinda-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
+}
+
+/* The Button: Glassmorphism */
+.btn-sovereign {
+    text-decoration: none;
+    color: var(--text-ivory);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05); /* Glass feel */
+    backdrop-filter: blur(5px);
+}
+
+.btn-sovereign:hover {
+    border-color: var(--elphaba-green);
+    box-shadow: 0 0 20px var(--elphaba-green);
+    color: var(--elphaba-green);
+}
+
+/* Optional: Film Grain Noise Overlay for Texture */
+.noise {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.05;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+}
