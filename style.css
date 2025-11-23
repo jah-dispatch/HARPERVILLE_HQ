@@ -296,7 +296,7 @@ body {
         linear-gradient(
             to bottom,              
             rgba(2, 26, 18, 0.0) 0%,   /* Top: Completely transparent (Crystal clear) */
-            rgba(2, 26, 18, 0.1) 50%,  /* Middle: Very subtle hint of emerald */
+            rgba(2, 26, 18, 0.1) 60%,  /* Middle: Very subtle hint of emerald */
             rgba(0, 0, 0, 0.6) 100%    /* Bottom: Just dark enough to read the white text */
         ),
         /* LAYER 2 (Bottom): The Image */
