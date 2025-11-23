@@ -208,3 +208,155 @@ body {
     box-shadow: inset 0 0 20px rgba(230, 0, 38, 0.2); /* Inner red glow */
     background: rgba(0,0,0,0.5);
 }
+/* --- THE MAINFRAME DASHBOARD --- */
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+    padding-bottom: 1rem;
+}
+
+.system-status {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--text-ivory);
+}
+
+.exit-link {
+    color: var(--ruby-slipper);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
+}
+
+.exit-link:hover {
+    opacity: 0.7;
+}
+
+/* --- THE BENTO GRID SYSTEM --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+    grid-template-rows: repeat(3, minmax(150px, auto)); /* 3 Rows */
+    gap: 1.5rem;
+}
+
+/* THE CARDS (Glassmorphism Blocks) */
+.card {
+    background: rgba(2, 26, 18, 0.7); /* Dark Emerald Glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: var(--text-ivory);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    border-color: var(--elphaba-green);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(57, 255, 20, 0.3);
+}
+
+/* --- SPECIFIC CARD SIZING (The "Tetris" Logic) --- */
+
+/* Profile: Big box, Top Left */
+.profile-card {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: linear-gradient(135deg, rgba(2, 26, 18, 0.9), rgba(57, 255, 20, 0.1));
+}
+
+.profile-card h3 {
+    font-size: 2rem;
+    background: linear-gradient(90deg, var(--oz-gold), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.profile-card .role {
+    color: var(--elphaba-green);
+    font-family: monospace;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* Vault: Tall box, Top Right */
+.vault-card {
+    grid-column: span 1;
+    grid-row: span 2;
+    border: 1px solid var(--oz-gold); /* Gold border for the Vault */
+}
+
+.vault-card:hover {
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Ledger: Wide box, Middle Right */
+.ledger-card {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Status: Wide box, Bottom Left */
+.status-card {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+}
+
+.status-row {
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+    color: rgba(255,255,255,0.6);
+}
+
+.status-row i {
+    color: var(--ruby-slipper);
+    margin-right: 10px;
+}
+
+/* Music: Small box */
+.music-card {
+    grid-column: span 2;
+}
+
+.icon-large {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr; /* Stack everything in 1 column on phone */
+        grid-template-rows: auto;
+    }
+    
+    .profile-card, .vault-card, .ledger-card, .status-card, .music-card {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
