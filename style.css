@@ -766,3 +766,76 @@ html, body {
         transform: rotate(-25deg); 
     }
 }
+/* --- I v1.5 (IVY WILLOW) --- */
+
+.ivy-card {
+    grid-column: span 1;
+    grid-row: span 1;
+    background: #020a06; /* Almost black */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    text-decoration: none; /* Kills the underline on the link */
+    color: var(--text-ivory);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Background Image Logic */
+.card-bg-ivy {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Ensure you save the image as 600x600px */
+    background-image: url('assets/images/ivy-dark.png'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* Keep it subtle so text pops */
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+.ivy-card:hover .card-bg-ivy {
+    opacity: 0.6;
+    transform: scale(1.05);
+}
+
+/* Content needs to sit above the image */
+.ivy-card .card-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* The Status Row (Dot + Text) */
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto; /* Pushes it to the bottom */
+}
+
+/* The Glowing Green Dot */
+.ivy-eye-glow-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--elphaba-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--elphaba-green);
+    animation: blink-eye 4s infinite;
+}
+
+.status-blink {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: var(--elphaba-green);
+    margin: 0;
+}
+
+@keyframes blink-eye {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
