@@ -839,3 +839,119 @@ html, body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
 }
+/* --- SOVEREIGN MAP STYLING --- */
+
+/* The Hover Cue on the Status Card */
+.map-hover-cue {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(2, 26, 18, 0.8); /* Dark tint */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--oz-gold);
+    font-weight: bold;
+    letter-spacing: 2px;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(3px);
+}
+
+.status-card:hover .map-hover-cue {
+    opacity: 1; /* Show on hover */
+}
+
+/* Modal Sizing */
+.map-modal-size {
+    width: 95%;
+    max-width: 1200px; /* Cinematic width */
+    height: 85vh; /* Tall */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; /* Tighter padding for map focus */
+}
+
+/* The Map Wrapper */
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #05140e;
+    border: 1px solid var(--oz-gold);
+    border-radius: 4px;
+    box-shadow: inset 0 0 50px #000; /* Inner shadow for vignette */
+}
+
+.oz-base-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fill the box */
+    opacity: 0.9;
+    filter: sepia(20%) contrast(1.1); /* Vintage vibe */
+}
+
+/* --- MAP PINS --- */
+.map-pin {
+    position: absolute;
+    transform: translate(-50%, -50%); /* Centers pin on coordinates */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none; /* Let clicks pass through */
+}
+
+.pin-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--oz-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--oz-gold);
+    margin-bottom: 5px;
+    animation: pulse-dot 3s infinite;
+}
+
+.dot-red {
+    background: var(--ruby-slipper);
+    box-shadow: 0 0 15px var(--ruby-slipper);
+}
+
+.star-icon {
+    font-size: 1.5rem;
+    color: var(--elphaba-green);
+    filter: drop-shadow(0 0 8px var(--elphaba-green));
+    margin-bottom: 5px;
+    animation: float-star 3s ease-in-out infinite;
+}
+
+.pin-label {
+    font-family: monospace;
+    font-size: 0.7rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 3px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.label-highlight {
+    background: var(--elphaba-green);
+    color: #000;
+    font-weight: bold;
+    border: 1px solid #fff;
+}
+
+/* Animations */
+@keyframes pulse-dot {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+    100% { opacity: 0.6; transform: scale(1); }
+}
+
+@keyframes float-star {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}

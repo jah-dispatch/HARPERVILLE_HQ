@@ -60,19 +60,24 @@
     </div>
 </a>
 
-            <div class="card status-card">
-                <div class="card-content">
-                    <div class="status-row">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>117 Poppy Field Way</span><br>
-                        <span>The Emerald City, OZ 71025</span>
-                    </div>
-                    <div class="status-row">
-                        <i class="fa-solid fa-temperature-half"></i>
-                        <span>Operating Temp: RuPaul's kitty after a prance down the runway.</span>
-                    </div>
-                </div>
-            </div>
+            <div class="card status-card" onclick="openMapModal()" style="cursor: pointer; position: relative; overflow: hidden;">
+    
+    <div class="map-hover-cue">
+        <i class="fa-solid fa-map"></i> VIEW OZIAN MAP
+    </div>
+
+    <div class="card-content">
+        <div class="status-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>117 Poppy Field Way</span><br>
+            <span>The Emerald City, OZ 71025</span>
+        </div>
+        <div class="status-row">
+            <i class="fa-solid fa-temperature-half"></i>
+            <span>Operating Temp: RuPaul's kitty after a prance down the runway.</span>
+        </div>
+    </div>
+</div>
 
            <div class="card music-card" style="padding: 0; overflow: hidden;">
 <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/playlist/the-life-of-jack-aspen-harper/pl.u-JPAZbdZFLrLrJb2"></iframe>
@@ -80,6 +85,54 @@
 
         </div>
     </main>
+    
+    <div id="oz-map-modal" class="modal-overlay">
+    <div class="modal-content map-modal-size">
+        <div class="modal-header">
+            <h3>SOVEREIGN GEOGRAPHY</h3>
+            <button onclick="closeMapModal()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="map-wrapper">
+            <img src="assets/images/oz-map-base.png" alt="Map of Oz" class="oz-base-image">
+            
+            <div class="map-pin pin-emerald" style="top: 45%; left: 48%;">
+                <div class="pin-dot"></div>
+                <span class="pin-label">THE EMERALD CITY</span>
+            </div>
+
+            <div class="map-pin pin-harperville" style="top: 32%; left: 24%;">
+                <i class="fa-solid fa-star star-icon"></i>
+                <span class="pin-label label-highlight">HARPERVILLE HQ</span>
+            </div>
+
+            <div class="map-pin" style="top: 28%; left: 82%;">
+                <div class="pin-dot dot-red"></div>
+                <span class="pin-label">POPPY FIELDS</span>
+            </div>
+
+            <div class="map-pin" style="top: 75%; left: 70%;">
+                <div class="pin-dot"></div>
+                <span class="pin-label">FIGHTING TREES</span>
+            </div>
+
+            <div class="map-pin" style="top: 18%; left: 10%;">
+                <i class="fa-solid fa-water" style="color: rgba(255,255,255,0.7);"></i>
+                <span class="pin-label">WESTERN SEA</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openMapModal() {
+        document.getElementById('oz-map-modal').style.display = 'flex';
+    }
+    function closeMapModal() {
+        document.getElementById('oz-map-modal').style.display = 'none';
+    }
+</script>
+
 <img id="broomstick-ride" src="assets/images/broomstick.png" alt="Levitation">
 
     <script>
