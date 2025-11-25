@@ -44,21 +44,18 @@
                 </div>
             </a>
 
-            <a href="#" class="card ivy-card">
+            <div class="card ivy-card" onclick="openIvyModal()" style="cursor: pointer;">
     <div class="card-bg-ivy"></div>
-    
     <div class="card-content">
         <i class="fa-solid fa-cat icon-large"></i>
-        
         <h3>I v1.5</h3>
         <p class="role">System Oracle</p>
-        
         <div class="status-container">
             <span class="ivy-eye-glow-dot"></span>
-            <p class="status-blink">STATUS: JUDGING YOU ALREADY!</p>
+            <p class="status-blink">STATUS: ONLINE & JUDGING YA ALREADY!</p>
         </div>
     </div>
-</a>
+</div>
 
             <div class="card status-card" onclick="openMapModal()" style="cursor: pointer; position: relative; overflow: hidden;">
     
@@ -148,5 +145,115 @@
             }, 1500);
         });
     </script>
+
+    <div id="ivy-modal" class="modal-overlay">
+    <div class="modal-content ivy-modal-size">
+        <div class="modal-header">
+            <h3>I v1.5 SYSTEM INTERFACE</h3>
+            <button onclick="closeIvyModal()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="ivy-chat-wrapper">
+            <div id="ivy-chat-log">
+                </div>
+
+            <form id="ivy-chat-form" onsubmit="sendMessage(event)">
+                <input type="text" id="ivy-input" placeholder="Consult the Oracle..." autocomplete="off">
+                <button type="submit" id="ivy-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* 1. MODAL CONTROLS */
+    let hasGreeted = false;
+
+    function openIvyModal() {
+        document.getElementById('ivy-modal').style.display = 'flex';
+        // Auto-greet only once per session
+        if (!hasGreeted) {
+            setTimeout(() => {
+                appendMessage('ivy', "Status: Judging you. How can the Oracle assist?");
+                hasGreeted = true;
+            }, 500);
+        }
+    }
+
+    function closeIvyModal() {
+        document.getElementById('ivy-modal').style.display = 'none';
+    }
+
+    /* 2. CHAT LOGIC */
+    let chatHistory = []; 
+
+    async function sendMessage(e) {
+        e.preventDefault(); 
+        
+        const inputField = document.getElementById('ivy-input');
+        const userText = inputField.value.trim();
+
+        if (!userText) return;
+
+        // Show User Message
+        appendMessage('user', userText);
+        inputField.value = ''; 
+        
+        chatHistory.push({ role: "user", content: userText });
+
+        // Show Loading State
+        const loadingId = appendMessage('ivy', '...', true);
+
+        try {
+            // Call Netlify Function
+            const response = await fetch('/.netlify/functions/ivy-chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userText, history: chatHistory })
+            });
+
+            const data = await response.json();
+            
+            removeMessage(loadingId);
+            
+            if (data.reply) {
+                appendMessage('ivy', data.reply);
+                chatHistory.push({ role: "assistant", content: data.reply });
+            } else {
+                appendMessage('ivy', "Connection fuzzy. Try again.");
+            }
+
+        } catch (error) {
+            removeMessage(loadingId);
+            appendMessage('ivy', "System Error: The Oracle is offline.");
+        }
+    }
+
+    // Helper: Create Bubbles
+    function appendMessage(sender, text, isLoading = false) {
+        const chatLog = document.getElementById('ivy-chat-log');
+        const bubble = document.createElement('div');
+        const msgId = 'msg-' + Date.now();
+        
+        bubble.id = msgId;
+        bubble.className = `chat-bubble bubble-${sender} ${isLoading ? 'pulse-text' : ''}`;
+        
+        if (sender === 'ivy') {
+            bubble.innerHTML = `<i class="fa-solid fa-cat" style="margin-right:8px;"></i> ${text}`;
+        } else {
+            bubble.innerText = text;
+        }
+
+        chatLog.appendChild(bubble);
+        chatLog.scrollTop = chatLog.scrollHeight; 
+        return msgId;
+    }
+
+    function removeMessage(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
+</script>
+
 </body>
 </html>
