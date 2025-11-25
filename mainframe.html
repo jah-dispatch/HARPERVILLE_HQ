@@ -225,7 +225,9 @@
 
         } catch (error) {
             removeMessage(loadingId);
-            appendMessage('ivy', "System Error: The Oracle is offline.");
+            // This will print the ACTUAL error to the chat bubble
+            appendMessage('ivy', "CRASH REPORT: " + error.message);
+            console.error("Full Error:", error);
         }
     }
 
