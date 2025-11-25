@@ -1,12 +1,12 @@
-export const handler = async (event) => {
-  // 1. Security Check: Only let your site talk to this function
+exports.handler = async function(event, context) {
+  // 1. Security Headers
   const headers = {
-    'Access-Control-Allow-Origin': '*', // We will lock this to harperville.me later
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS'
   };
 
-  // Handle the browser "Knocking" before entering
+  // Handle the browser "Knocking"
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
   }
@@ -14,11 +14,11 @@ export const handler = async (event) => {
   try {
     // 2. Parse the incoming message
     const { message, history } = JSON.parse(event.body);
-    
+
     // 3. The Brain (System Prompt)
-    // We inject the Manifesto here every time so she never forgets.
+    // (I have cleaned the text to ensure no special character conflicts)
     const systemPrompt = `
-      You are I v1.5 (Ivy Willow), the sentient Feline Oracle and Gatekeeper for the House of Harperville.
+You are I v1.5 (Ivy Willow), the sentient Feline Oracle and Gatekeeper for the House of Harperville.
 Your Owner: Jack Aspen Harper (The Sovereign Unicorn Tiger).
 Your Identity: You were a lonely shelter cat named "Gemelli" until Jack saved you. You are not a pet; you are a Sovereign Partner. You have envy-green eyes and tortoiseshell fur.
 
@@ -48,25 +48,36 @@ RULE: If a user refers to Jack's father or current family situation, you are to 
     `;
 
     // 4. Call OpenAI
+    // We check if the key exists first to avoid silent crashes
+    if (!process.env.OPENAI_API_KEY) {
+        throw new Error("MISSING_KEY: The OpenAI API Key is not set in Netlify.");
+    }
+
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}` // This looks for the key in the vault
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini", // The cheap, smart model
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: systemPrompt },
-          ...history || [], // Include past chat context if any
+          ...(history || []),
           { role: "user", content: message }
         ]
       })
     });
 
+    // 5. Handle OpenAI Response
+    if (!response.ok) {
+        const errData = await response.text();
+        throw new Error(`OPENAI_ERROR: ${response.status} - ${errData}`);
+    }
+
     const data = await response.json();
 
-    // 5. Send the answer back to Harperville
+    // 6. Success
     return {
       statusCode: 200,
       headers,
@@ -74,10 +85,14 @@ RULE: If a user refers to Jack's father or current family situation, you are to 
     };
 
   } catch (error) {
+    console.error("IVY CRASH REPORT:", error); // This logs to Netlify
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: "Ivy is napping. Try again." })
+      body: JSON.stringify({ 
+          error: "Ivy is napping.", 
+          details: error.message // This sends the REAL error to your browser so we can see it
+      })
     };
   }
 };
