@@ -1040,3 +1040,27 @@ html, body {
 
 .pulse-text { animation: pulse 1s infinite; }
 @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+.jack-message {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.message-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #013220 20%, #006400 40%, #228B22 60%, #50C878 80%);
+    /* swap emeralds for ruby tones if you prefer */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 
+        1px 1px 2px #000,
+        0 0 5px rgba(0, 100, 0, 0.7),
+        0 0 10px rgba(80, 200, 120, 0.8);
+}
