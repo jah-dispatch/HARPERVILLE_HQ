@@ -35,9 +35,74 @@
 
     </h2>
 </section>
+<br>
 
         <div class="gate-wrapper">
-    <a href="#" class="btn-sovereign">COME BACK SOON</a>
+  <a href="mainframe.html" class="btn-sovereign" id="gateway">ENTER THE KINGDOM!</a>
+</div>
+
+<!-- Sunflower overlay -->
+<div id="sunflower-overlay">
+  <img src="assets/images/because-because-because.png" alt="Sunflower Bloom" />
+  <div class="glimmer"></div>
+</div>
+
+<style>
+#sunflower-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 1s ease, transform 1.5s ease;
+  z-index: 999;
+}
+
+#sunflower-overlay img {
+  max-height: 80vh;
+  position: relative;
+  z-index: 2;
+}
+
+/* Glimmer overlay */
+.glimmer {
+  position: absolute;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.6) 50%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  animation: shimmer 2s forwards;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+</style>
+
+<script>
+document.getElementById("gateway").addEventListener("click", (e) => {
+  e.preventDefault(); // stop immediate navigation
+  const overlay = document.getElementById("sunflower-overlay");
+  overlay.style.opacity = 1;
+  overlay.style.transform = "translateY(0)";
+  setTimeout(() => {
+    window.location.href = "mainframe.html";
+  }, 2500); // adjust timing to match animation
+});
+</script>
+
     
     <a href="https://www.trumpactiontracker.info" target="_blank" class="btn-monkey">I'D RATHER BE EATEN BY A FLYING MONKEY</a>
 </div>
