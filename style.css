@@ -1084,6 +1084,7 @@ html, body {
   transform: translate(-50%, -50%);
   z-index: 9999;
   animation: vault-ring-expand 1.5s ease-out forwards;
+  pointer-events: none;
 }
 
 @keyframes vault-ring-expand {
