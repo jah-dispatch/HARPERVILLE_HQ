@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harperville™ | Vault Gate</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="cinematic-lock">
+  <div class="container">
+    <h1 class="gold-pulse">VAULT ACCESS REQUIRED</h1>
+    <p class="subtitle">Answer the riddle to proceed...</p>
+
+    <div id="riddle-box">
+      <p id="riddle-question"></p>
+      <input type="text" id="riddle-answer" placeholder="Type your answer here">
+      <button class="btn-sovereign" onclick="checkAnswer()">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    const riddles = [
+      { q: "Which direction in Oz is Harperville™ HQ located--North, South, East, West?", a: "west" },
+      { q: "Who is the Harperville™ System Oracle?", a: "ivy" },
+      { q: "What is Jack's middle name?", a: "aspen" },
+      { q: "What is Jack's nationality?", a: "ozian" }
+    ];
+
+    // Pick a random riddle
+    const chosen = riddles[Math.floor(Math.random() * riddles.length)];
+    document.getElementById("riddle-question").innerText = chosen.q;
+
+    function checkAnswer() {
+      const userAnswer = document.getElementById("riddle-answer").value.trim().toLowerCase();
+      if (userAnswer === chosen.a) {
+        window.location.href = "main-vault.html";
+      } else {
+        window.location.href = "mainframe.html";
+      }
+    }
+  </script>
+</body>
+</html>
