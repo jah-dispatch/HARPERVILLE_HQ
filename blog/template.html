@@ -1,158 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harperville™ | FILL IN TITLE HERE </title>
-    
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harperville™ | [Post Title]</title>
 
-    <style>
-        /* 1. Force the page to allow scrolling & Apply Void-Emerald Background */
-        html, body {
-            height: auto !important;
-            min-height: 100vh;
-            overflow-y: auto !important;
-            margin: 0;
-            padding: 0;
-            
-            /* --- THE COLOR FIX --- */
-            background-color: #000000; /* Deep black fallback */
-            /* This creates the "Void Emerald" glow */
-            background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%); 
-            background-attachment: fixed; /* Keeps the glow centered while you scroll */
-        }
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        /* 2. Make sure the background noise stays still while you scroll */
-        .noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1; 
-            pointer-events: none;
-            opacity: 0.05; /* Adjust this to make the grain subtler or stronger */
-        }
+  <style>
+    html, body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%);
+      background-attachment: fixed;
+      overflow-y: auto !important;
+    }
 
-        /* 3. Ensure the container centers but allows growth */
-        main.container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 6rem 20px 4rem 20px; /* Top, Right, Bottom, Left */
-            box-sizing: border-box;
-            position: relative;
-            z-index: 1;
-        }
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.05;
+    }
 
-        /* 4. Fix Navigation to top left */
-        nav {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 100;
-        }
+    main.container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 20px 4rem 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
 
-        /* 5. Ensure text wraps correctly on mobile */
-        .post-content p {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        
-        a.exit-link {
-            text-decoration: none;
-            color: #d4af37; /* Gold fallback */
-            font-family: monospace;
-            font-weight: bold;
-        }
-    </style>
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    .post-content p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    a.exit-link {
+      text-decoration: none;
+      color: #d4af37;
+      font-family: monospace;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="noise"></div>
+  <nav>
+    <a href="/ledger.html" class="exit-link">
+      <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
+    </a>
+  </nav>
 
-    <nav>
-        <a href="//ledger.html" class="exit-link">
-            <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
-        </a>
-    </nav>
+  <main class="container">
 
-    <main class="container">
-        
-        <header class="post-header">
-            <h1 class="post-title">TITLE GOES HERE</h1>
-            
-            <div class="status-strip">
-                
-                <div class="status-item">
-                    <span class="status-label">LOG DATE</span>
-                    <span class="status-value">NOV 23, 2025</span>
-                </div>
+    <header class="post-header">
+      <h1 class="post-title">[Post Title]</h1>
 
-                <div class="status-item">
-                    <span class="status-label">ESPRESSO</span>
-                    <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 2 SHOTS</span>
-                </div>
+      <div class="status-strip">
+        <div class="status-item">
+          <span class="status-label">LOG DATE</span>
+          <span class="status-value">[Date]</span>
+        </div>
 
-                <div class="status-item">
-                    <span class="status-label">WEATHER</span>
-                    <span class="status-value">Flying Monkeys on Extreme Alert</span>
-                </div>
+        <div class="status-item">
+          <span class="status-label">ESPRESSO</span>
+          <span class="status-value"><i class="fa-solid fa-mug-hot"></i> [Shot Count]</span>
+        </div>
 
-                <div class="status-item mood-box" data-rating="1">
-                    <span class="status-label">MOOD</span>
-                    <span class="status-value" id="mood-display">CALCULATING...</span>
-                </div>
+        <div class="status-item">
+          <span class="status-label">WEATHER</span>
+          <span class="status-value">[Weather Description]</span>
+        </div>
 
-            </div>
-        </header>
+        <div class="status-item mood-box" data-rating="[1–10]">
+          <span class="status-label">MOOD</span>
+          <span class="status-value" id="mood-display">CALCULATING...</span>
+        </div>
+      </div>
+    </header>
 
-        <article class="post-content">
-            <p class="lead-paragraph">
-                Lead Paragraph goes here.
-            </p>
+    <article class="post-content">
+      <p class="lead-paragraph"><strong>[Opening line or theme]</strong></p>
 
-            <p>
-                This is content for the blog. Just using it <b>in case I need TO CALL SOME HORSESHIT!!</b> out against a certain number of people. 
-                <br> 
-                Placeholder text starts here: Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-            </p>
-                        
-            <blockquote>
-                "Blockquote goes here inside these quotation marks."
-            </blockquote>
+      <p>[Paragraph 1]</p>
+      <p>[Paragraph 2]</p>
+      <p>[Paragraph 3]</p>
 
-        </article>
+      <blockquote>
+        [Optional quote or reflection]
+      </blockquote>
 
-        <footer class="post-footer">
-            <img src="//assets/images/harperville-logo.png" alt="Signature" class="footer-sig">
-            <p>END OF LOG</p>
-        </footer>
+      <p>[Closing thoughts or invitation]</p>
+    </article>
 
-    </main>
+    <footer class="post-footer">
+      <img src="/assets/images/harperville-logo.png" alt="Harperville Logo" class="footer-sig">
+      <p>END OF LOG</p>
+    </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const moodBox = document.querySelector('.mood-box');
-            const display = document.getElementById('mood-display');
-            
-            // Check if moodBox exists to prevent errors
-            if(moodBox) {
-                const rating = parseInt(moodBox.getAttribute('data-rating'));
-                
-                let emoji = "😐"; // Default
-                
-                if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
-                else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
-                else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
-                else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
-                else if (rating === 10) emoji = "🦄 (Sovereign)";
-                
-                display.innerText = rating + "/10 " + emoji;
-            }
-        });
-    </script>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const moodBox = document.querySelector('.mood-box');
+      const display = document.getElementById('mood-display');
+
+      if (moodBox) {
+        const rating = parseInt(moodBox.getAttribute('data-rating'));
+        let emoji = "😐";
+        if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+        else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+        else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+        else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+        else if (rating === 10) emoji = "🦄 (Sovereign)";
+        display.innerText = rating + "/10 " + emoji;
+      }
+    });
+  </script>
 </body>
 </html>
