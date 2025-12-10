@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harperville™ | Welcome to my domain!</title>
 
-  <!-- External Styles -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Load site CSS from root, not relative -->
+  <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -18,9 +18,10 @@
       background-color: #000000;
       background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%);
       background-attachment: fixed;
+      overflow-y: auto !important;
     }
 
-    /* Noise overlay */
+    /* Noise overlay (if used) */
     .noise {
       position: fixed;
       top: 0;
@@ -34,6 +35,7 @@
 
     /* Container */
     main.container {
+      width: 100%;
       max-width: 800px;
       margin: 0 auto;
       padding: 6rem 20px 4rem 20px;
@@ -56,7 +58,7 @@
       overflow-wrap: break-word;
     }
 
-    /* Exit link */
+    /* Exit link style */
     a.exit-link {
       text-decoration: none;
       color: #d4af37;
@@ -83,14 +85,17 @@
           <span class="status-label">LOG DATE</span>
           <span class="status-value">DEC 10, 2025</span>
         </div>
+
         <div class="status-item">
           <span class="status-label">ESPRESSO</span>
           <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 3 DOUBLE-SHOTS</span>
         </div>
+
         <div class="status-item">
           <span class="status-label">WEATHER</span>
           <span class="status-value">Sunny w/ Scattered Spectral Emerald Storms</span>
         </div>
+
         <div class="status-item mood-box" data-rating="8">
           <span class="status-label">MOOD</span>
           <span class="status-value" id="mood-display">CALCULATING...</span>
@@ -99,7 +104,9 @@
     </header>
 
     <article class="post-content">
-      <p class="lead-paragraph"><strong>Welcome to Harperville™—the (unofficially enchanted) realm of creative merriment.</strong></p>
+      <p class="lead-paragraph">
+        <strong>Welcome to Harperville™—the (unofficially enchanted) realm of creative merriment.</strong>
+      </p>
 
       <p>I'm Jack Aspen Harper, your Ozian Envoy for The Emerald City. While Harperville™ dwells beyond the provincial borders of EC, the headquarters scrolls still bear Emerald City jurisdiction. Thus, the 71025 zip code. But what is it truly? It's a place, it's an idea, it's a land I call home. My healer once told me to study Erik Erickson's stages of human becoming, for I'd skipped a few of those steps in late childhood. And Great Oz, she was right! While others my age were wandering through the fantasy fields of youth, I'd already been handed the deck of mortal responsibilities.</p>
 
@@ -115,7 +122,6 @@
     </article>
 
     <footer class="post-footer">
-      <!-- Corrected logo with proper class -->
       <img src="/assets/images/harperville-logo.png" alt="Harperville Logo" class="footer-sig">
       <p>END OF LOG</p>
     </footer>
@@ -126,6 +132,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       const moodBox = document.querySelector('.mood-box');
       const display = document.getElementById('mood-display');
+
       if (moodBox) {
         const rating = parseInt(moodBox.getAttribute('data-rating'));
         let emoji = "😐";
