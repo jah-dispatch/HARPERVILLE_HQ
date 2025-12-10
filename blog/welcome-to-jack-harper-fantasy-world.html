@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harperville™ | Welcome to my domain! </title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 1. Force the page to allow scrolling & Apply Void-Emerald Background */
+        html, body {
+            height: auto !important;
+            min-height: 100vh;
+            overflow-y: auto !important;
+            margin: 0;
+            padding: 0;
+            
+            /* --- THE COLOR FIX --- */
+            background-color: #000000; /* Deep black fallback */
+            /* This creates the "Void Emerald" glow */
+            background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%); 
+            background-attachment: fixed; /* Keeps the glow centered while you scroll */
+        }
+
+        /* 2. Make sure the background noise stays still while you scroll */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; 
+            pointer-events: none;
+            opacity: 0.05; /* Adjust this to make the grain subtler or stronger */
+        }
+
+        /* 3. Ensure the container centers but allows growth */
+        main.container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 20px 4rem 20px; /* Top, Right, Bottom, Left */
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 4. Fix Navigation to top left */
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        /* 5. Ensure text wraps correctly on mobile */
+        .post-content p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        a.exit-link {
+            text-decoration: none;
+            color: #d4af37; /* Gold fallback */
+            font-family: monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <nav>
+        <a href="ledger.html" class="exit-link">
+            <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
+        </a>
+    </nav>
+
+    <main class="container">
+        
+        <header class="post-header">
+            <h1 class="post-title">Welcome to My Domain!</h1>
+            
+            <div class="status-strip">
+                
+                <div class="status-item">
+                    <span class="status-label">LOG DATE</span>
+                    <span class="status-value">DEC 10, 2025</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-label">ESPRESSO</span>
+                    <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 3 DOUBLE-SHOTS</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-label">WEATHER</span>
+                    <span class="status-value">Sunny w/ Scattered Spectral Emerald Storms</span>
+                </div>
+
+                <div class="status-item mood-box" data-rating="8">
+                    <span class="status-label">MOOD</span>
+                    <span class="status-value" id="mood-display">CALCULATING...</span>
+                </div>
+
+            </div>
+        </header>
+
+        <article class="post-content">
+            <p class="lead-paragraph">
+                <p><strong>Welcome to Harperville&trade; &mdash; the (unofficially enchanted) realm of creative merriment.</strong></p>
+            </p>
+
+            <p>I&rsquo;m Jack Aspen Harper, your Ozian Envoy for The Emerald City. While Harperville&trade; dwells beyond the provincial borders of EC, the headquarters scrolls still bear Emerald City jurisdiction. Thus, the 71025 zip code. But what is it truly? It&rsquo;s a place, it&rsquo;s an idea, it&rsquo;s a land I call home. My healer once told me to study Erik Erickson&rsquo;s stages of human becoming, for I&rsquo;d skipped a few of those steps in late childhood. And Great Oz, she was right! While others my age were wandering through the fantasy fields of youth, I&rsquo;d already been handed the deck of mortal responsibilities.</p>
+<p>Fast forward to fifteen, I began working my first trade. Then a second. And my schooling? Well, by the third toil <strong>(the first soul‑draining force that it was, as an in‑house collections agent for Cingular Wireless/AT&amp;T)</strong>, I&rsquo;d climbed the corporate ladder&mdash;in result, placing my high school graduation upon the backburner cauldron. But fret not, I DID graduaciously advance to college in 2007 after reaching the conclusion I needed to finish my remaining high school credits.</p>
+<p>By that chapter of my life, my mother&rsquo;s health was so dire, and adulthood was thrust upon me far earlier than anyone else I know. So, with 2025 having been such a transformative year, I figured it&rsquo;s high time I carve space for myself to express creativity and innocence, allowing me to reconnect with my inner child of Oz. Harperville&trade; exists on the basis that reality need not be all phantoms and cobwebs. Toss in some hefty mental illness factors, and we&rsquo;ve a grand cauldron of elements to conjure with.</p>
+                        
+            <blockquote>
+                In a way, this enchanted space is my safe sanctuary to express myself unabashedly, freely, and oftentimes very candidly. Some scrolls here within The Ledger may be rants. Some of them might not make any sense <em>(if you&rsquo;re not Ozian)</em>, or a highly trained mental health practitioner in the least. But that&rsquo;s perfectly fine.
+            </blockquote>
+<p>So, wander this ever‑evolving domain at your leisure. It&rsquo;s a place where I can braid all my favorite elements of life, sharing my hobbies and interests with the world at large, and a contained boundary that doesn&rsquo;t spill‑over into my actual waking life. I can release steam and not be villainized or labeled &ldquo;Wicked&rdquo; because of my &ldquo;otherness.&rdquo; This place is mine. I&rsquo;m extending anyone and everyone an entrance, under the conditions that you do so with empathy, an open mind, and perhaps even a flourishing panache for Ozian lore.</p>
+        </article>
+
+        <footer class="post-footer">
+            <img src="/assets/images/harperville-logo.png" alt="Signature" class="footer-sig">
+            <p>END OF LOG</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const moodBox = document.querySelector('.mood-box');
+            const display = document.getElementById('mood-display');
+            
+            // Check if moodBox exists to prevent errors
+            if(moodBox) {
+                const rating = parseInt(moodBox.getAttribute('data-rating'));
+                
+                let emoji = "😐"; // Default
+                
+                if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+                else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+                else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+                else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+                else if (rating === 10) emoji = "🦄 (Sovereign)";
+                
+                display.innerText = rating + "/10 " + emoji;
+            }
+        });
+    </script>
+</body>
+</html>
