@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harperville™ | Café Message Board</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%);
+      background-attachment: fixed;
+      overflow-y: auto;
+    }
+
+    main.container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 20px 4rem 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    a.exit-link {
+      text-decoration: none;
+      color: #d4af37;
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    .cafe-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .cafe-subtitle {
+      font-size: 0.95rem;
+      color: #d4d4d4;
+      opacity: 0.9;
+    }
+
+    .cafe-board-wrapper {
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid #0f2e22;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .cafe-board-frame {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      main.container {
+        padding: 5rem 10px 3rem 10px;
+      }
+
+      .cafe-board-wrapper {
+        padding: 1rem;
+      }
+
+      .cafe-board-frame {
+        height: 75vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/main-vault.html" class="exit-link">
+      <i class="fa-solid fa-arrow-left"></i> BACK TO VAULT
+    </a>
+  </nav>
+
+  <main class="container">
+    <header class="cafe-header">
+      <h1 class="post-title">Harperville™ Café Message Board</h1>
+      <p class="cafe-subtitle">
+        A low-stakes corkboard for notes, check-ins, and Ozian sightings. Please post with empathy and curiosity.
+      </p>
+    </header>
+
+    <section class="cafe-board-wrapper">
+      <iframe
+        src="https://groups.google.com/g/harperville-cafe"
+        class="cafe-board-frame"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+  </main>
+
+</body>
+</html>
