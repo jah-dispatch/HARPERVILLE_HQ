@@ -1151,3 +1151,48 @@ html, body {
     font-size: 0.9rem;            /* scale down */
   }
 }
+/* Snake Slither Text */
+.snake-text {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #9cffc7;
+  text-shadow: 0 0 8px rgba(0, 255, 150, 0.4);
+  overflow: hidden;
+  position: relative;
+}
+
+.snake-text span {
+  display: inline-block;
+  animation: snakeSlither 3.5s infinite ease-in-out;
+  background: linear-gradient(90deg, #00ff9d, #d4af37, #00ff9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes snakeSlither {
+  0% {
+    transform: translateX(-5px) skewX(0deg) scale(1);
+    filter: drop-shadow(0 0 4px #00ff9d);
+  }
+  25% {
+    transform: translateX(5px) skewX(3deg) scale(1.05);
+    filter: drop-shadow(0 0 6px #d4af37);
+  }
+  50% {
+    transform: translateX(-3px) skewX(-3deg) scale(1);
+    filter: drop-shadow(0 0 4px #00ff9d);
+  }
+  75% {
+    transform: translateX(3px) skewX(2deg) scale(1.03);
+    filter: drop-shadow(0 0 6px #d4af37);
+  }
+  100% {
+    transform: translateX(-5px) skewX(0deg) scale(1);
+    filter: drop-shadow(0 0 4px #00ff9d);
+  }
+}
