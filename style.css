@@ -1305,9 +1305,9 @@ html, body {
   }
 }
 .back-to-top-link {
-  display: inline-block;
+  display: block;
+  text-align: center;
   margin: 0 auto;
-  text-align: center;  
   color: #d4af37;
   text-decoration: none;
   font-family: monospace;
