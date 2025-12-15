@@ -1196,3 +1196,91 @@ html, body {
     filter: drop-shadow(0 0 4px #00ff9d);
   }
 }
+/* ============================================================
+   JACK'S JUKEBOX — ARTIST PAGE SPARKLE SYSTEM
+   ============================================================ */
+
+/* Swish & Flick Animation */
+@keyframes sparkleFloat {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  50% {
+    background-position: 10px 20px, 20px 10px, 0 0;
+  }
+  100% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+}
+
+/* Harperville 2026 Blue — #3A6EDC */
+.sparkle-harperville26 {
+  background:
+    radial-gradient(circle at center, rgba(58, 110, 220, 0.18), transparent 70%),
+    url('/assets/sparkles/sparkle-harperville26.png'),
+    radial-gradient(circle at center, #1a2a4d 0%, #000000 100%);
+  background-size: cover, 700px, cover;
+  background-position: 0 0, 0 0, 0 0;
+  background-attachment: fixed;
+  animation: sparkleFloat 18s ease-in-out infinite;
+}
+
+/* Elphaba Green — #1AF01A */
+.sparkle-elphaba {
+  background:
+    radial-gradient(circle at center, rgba(26, 240, 26, 0.22), transparent 70%),
+    url('/assets/sparkles/sparkle-elphaba.png'),
+    radial-gradient(circle at center, #0f2e0f 0%, #000000 100%);
+  background-size: cover, 700px, cover;
+  background-position: 0 0, 0 0, 0 0;
+  background-attachment: fixed;
+  animation: sparkleFloat 18s ease-in-out infinite;
+}
+
+/* Portofino Orange — #FF7A14 */
+.sparkle-portofino {
+  background:
+    radial-gradient(circle at center, rgba(255, 122, 20, 0.22), transparent 70%),
+    url('/assets/sparkles/sparkle-portofino.png'),
+    radial-gradient(circle at center, #331a00 0%, #000000 100%);
+  background-size: cover, 700px, cover;
+  background-position: 0 0, 0 0, 0 0;
+  background-attachment: fixed;
+  animation: sparkleFloat 18s ease-in-out infinite;
+}
+
+/* Glinda Pink */
+.sparkle-glinda {
+  background:
+    radial-gradient(circle at center, rgba(255, 153, 255, 0.22), transparent 70%),
+    url('/assets/sparkles/sparkle-glinda.png'),
+    radial-gradient(circle at center, #1a0b1f 0%, #000000 100%);
+  background-size: cover, 700px, cover;
+  background-position: 0 0, 0 0, 0 0;
+  background-attachment: fixed;
+  animation: sparkleFloat 18s ease-in-out infinite;
+}
+
+/* Ruby Red */
+.sparkle-ruby {
+  background:
+    radial-gradient(circle at center, rgba(255, 80, 80, 0.22), transparent 70%),
+    url('/assets/sparkles/sparkle-ruby.png'),
+    radial-gradient(circle at center, #260000 0%, #000000 100%);
+  background-size: cover, 700px, cover;
+  background-position: 0 0, 0 0, 0 0;
+  background-attachment: fixed;
+  animation: sparkleFloat 18s ease-in-out infinite;
+}
+
+/* Yellow Brick */
+.sparkle-yellow {
+  background:
+    radial-gradient(circle at center, rgba(255, 230, 128, 0.24), transparent 70%),
+    url('/assets/sparkles/sparkle-yellow.png'),
+    radial-gradient(circle at center, #332400 0%, #000000 100%);
+  background-size: cover, 700px, cover;
+  background-position: 0 0, 0 0, 0 0;
+  background-attachment: fixed;
+  animation: sparkleFloat 18s ease-in-out infinite;
+}
