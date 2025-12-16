@@ -1465,7 +1465,7 @@ html, body {
 .sparkle-portofino {
   background:
     radial-gradient(circle at center, rgba(255, 122, 20, 0.22), transparent 70%),
-    url('/assets/sparkles/sparkle-portofino.png'),
+    url('/assets/sparkles/sparkle-portofino-g.png'),
     radial-gradient(circle at center, #331a00 0%, #000000 100%);
   background-size: cover, 700px, cover;
   background-position: 0 0, 0 0, 0 0;
