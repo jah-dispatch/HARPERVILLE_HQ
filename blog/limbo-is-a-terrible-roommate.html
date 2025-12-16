@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harperville™ | Limbo Is a Terrible Roommate</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%);
+      background-attachment: fixed;
+      overflow-y: auto !important;
+    }
+
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.05;
+    }
+
+    main.container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 20px 4rem 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    .post-content p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    a.exit-link {
+      text-decoration: none;
+      color: #d4af37;
+      font-family: monospace;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/ledger.html" class="exit-link">
+      <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
+    </a>
+  </nav>
+
+  <main class="container">
+
+    <header class="post-header">
+      <h1 class="post-title">Limbo Is a Terrible Roommate</h1>
+
+      <div class="status-strip">
+        <div class="status-item">
+          <span class="status-label">LOG DATE</span>
+          <span class="status-value">DEC 16, 2025</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">ESPRESSO</span>
+          <span class="status-value"><i class="fa-solid fa-mug-hot"></i>None, really.</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">WEATHER</span>
+          <span class="status-value">The Curtains are shut. Does that say anything?</span>
+        </div>
+
+        <div class="status-item mood-box" data-rating="2">
+          <span class="status-label">MOOD</span>
+          <span class="status-value" id="mood-display">CALCULATING...</span>
+        </div>
+      </div>
+    </header>
+
+    <article class="post-content">
+      <p class="lead-paragraph"><strong>My spine has officially entered its “problematic trilogy” era.</strong></p>
+
+      <p>That's right! Cervical stenosis stands out as the headliner — where my C3–C4 (and C5) regions are doing their best impression of a twisted phone cord on a kitchen wall circa 1999 — but the supporting cast is just as chaotic. With lumbar stenosis flaring like it wants a solo, and my thoracic section is “clean‑ish,” which is medical‑speak for “there’s disc bulging and protrusions, a little hypertrophy, and you’re developing the family‑heirloom from two maternal generations.”</p>
+
+      <p>Oh, and this <strong>inheritence?</strong> It's worth <u>negative currency.</u> In essence, I'm indebted to the universal powers that be for simply — <em>existing.</em> If I survive 2026, soonish (since time likes to speed up whever things are <em>most inconvenient)</em>I'll essentially bear a striking resemblance to a brontosaurus. Notre Dame? That guy ain't got shit on Jack Aspen Harper. NO MA'AM!</p>
+
+      <p>Genetics really said: “Here’s your legacy, kid” and "get to love it!"</p>
+
+      <p>Most days I feel like Boq halfway through becoming the Tin Man — stiff, timber, and one emotional beat away from asking someone to oil my joints. Wicked, and The Wizard of Oz in general, really prepared me for this moment in ways I didn’t appreciate until now.</p>
+
+      <p>And the worst part? I’m supposed to just… <em>wait.</em> Until next month. <strong>Before anyone even plans what to do</strong>with the Jenga tower I've been walking around Western Colorado with for the last decade. <em>I mean, at least that long, right?!?!</em> Spines don't just malform in a single night as if a petulant little bitch in blue ginghan-check has rained on their parade!</p>
+
+      <p>So, you see, this limbo dipstick is a terrible roommate. He eats your food, hogs the bathroom, and whispers worst‑case scenarios into your ear at 3 a.m. Our brains dislike this type of uncertainty — there’s an actual psychological thing where not knowing <em>hurts more than</em> bad news — and I’m living in that gap right now. The “something is wrong” but “we’ll deal with it later” gap.</p>
+      
+      <blockquote>
+        I don’t have a moral to this story. I don’t have a tidy ending. I’m just naming it because pretending I’m fine is exhausting. And I've grown too fucking tired of all the platitudes on the matter. Performing comfort for the benefit of somebody else's inability to handle real-talk has become my new creed.
+      </blockquote>
+
+      <p>This is my current phase of “try not to think about a neck surgery you may not walk out of” gap.</p>
+
+      <p>And then this weekend I went to see Wicked: For Good, and it hit me harder than I expected. Not in a dramatic, life‑changing way — more like a quiet punch to the ribs. A reminder that I still have dreams. I still have things I want to do. I still have a future I haven’t lived yet.</p>
+
+      <p>It was the highlight of my month. It also made everything feel more fragile.</p>
+
+      <p>Limbo sucks. My spine sucks. Time sucks. </p> 
+      
+      <p>But I’m still here.</p> 
+      
+      <p><strong><em>And apparently that counts for something.</em></strong></p>
+    </article>
+
+    <footer class="post-footer">
+      <img src="/assets/images/harperville-logo.png" alt="Harperville Logo" class="footer-sig">
+      <p>END OF LOG</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const moodBox = document.querySelector('.mood-box');
+      const display = document.getElementById('mood-display');
+
+      if (moodBox) {
+        const rating = parseInt(moodBox.getAttribute('data-rating'));
+        let emoji = "😐";
+        if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+        else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+        else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+        else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+        else if (rating === 10) emoji = "🦄 (Sovereign)";
+        display.innerText = rating + "/10 " + emoji;
+      }
+    });
+  </script>
+</body>
+</html>
