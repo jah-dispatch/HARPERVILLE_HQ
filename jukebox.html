@@ -307,6 +307,16 @@
 </footer>
 
   </main>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".jukebox-section");
+    sections.forEach((sec, i) => {
+      setTimeout(() => {
+        sec.classList.add("flicker");
+      }, i * 120); // adjust timing for faster or slower "tuning"
+    });
+  });
+</script>
 
 </body>
 </html>
