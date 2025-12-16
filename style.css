@@ -350,12 +350,12 @@ body.cinematic-lock {
         /* LAYER 1 (Top): The Ghost Gradient */
         linear-gradient(
             to bottom,              
-            rgba(2, 26, 18, 0.0) 5%,   /* Top: Completely transparent (Crystal clear) */
+            rgba(2, 26, 18, 0.0) 0%,   /* Top: Completely transparent (Crystal clear) */
             rgba(2, 26, 18, 0.1) 70%,  /* Middle: Very subtle hint of emerald */
             rgba(0, 0, 0, 0.6) 100%    /* Bottom: Just dark enough to read the white text */
         ),
         /* LAYER 2 (Bottom): The Image */
-        url('assets/images/jackofharperville.png');
+        url('assets/images/jack-aspen-harper-harperville.png');
 
     /* Scaling mechanics */
     background-size: cover; /* Fills the box without stretching distorting */
