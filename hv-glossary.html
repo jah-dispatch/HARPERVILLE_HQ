@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harperville™ | Glossary</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================
+   GLOSSARY INDEX
+   ========================= */
+
+.glossary-index {
+  text-align: center;
+  margin: 2rem 0;
+  font-family: monospace;
+}
+
+.glossary-index a {
+  color: #d4af37;
+  margin: 0 6px;
+  text-decoration: none;
+}
+
+.glossary-index a:hover {
+  text-shadow: 0 0 6px #d4af37;
+}
+
+/* =========================
+   SECTIONS & GRID
+   ========================= */
+
+.glossary-section {
+  margin-bottom: 3rem;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .glossary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   TERMS
+   ========================= */
+
+.glossary-term {
+  cursor: pointer;
+  color: #e6e6e6;
+  font-family: var(--body-font, sans-serif);
+  padding: 0.4rem 0.2rem;
+}
+
+.glossary-term:hover {
+  color: #d4af37;
+  text-shadow: 0 0 6px #d4af37;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.glossary-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.glossary-modal.active {
+  display: flex;
+}
+
+.glossary-card {
+  background: #0b0b0b;
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 1.5rem;
+  max-width: 440px;
+  width: 92%;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+.glossary-card h3 {
+  margin-top: 0;
+  color: #d4af37;
+}
+
+.glossary-card p {
+  line-height: 1.6;
+  color: #e6e6e6;
+}
+
+/* Inline example */
+.glossary-example {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(212,175,55,0.3);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #cccccc;
+  opacity: 0.85;
+}
+
+.glossary-close {
+  text-align: right;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.glossary-close:hover {
+  color: #fff;
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<main class="dashboard-container">
+
+<header class="dashboard-header">
+  <h2 class="system-status">SYSTEM: <span class="highlight">GLOSSARY ONLINE</span></h2>
+  <a href="mainframe.html" class="exit-link">RETURN TO MAINFRAME</a>
+</header>
+
+<h1 class="jukebox-title">Harperville™ Glossary</h1>
+
+<p class="jukebox-subtitle">
+A living, unofficial, emotionally accurate dictionary of Harperville™ language.
+</p>
+
+<!-- INDEX -->
+<div class="glossary-index">
+  <a href="#C">C</a>
+  <a href="#G">G</a>
+  <a href="#L">L</a>
+  <a href="#O">O</a>
+  <a href="#P">P</a>
+</div>
+
+<!-- C -->
+<h2 id="C" class="gold-pulse">C</h2>
+<div class="glossary-section">
+  <div class="glossary-grid">
+
+    <div class="glossary-term"
+      data-term="clock‑tick"
+      data-definition="A moment when time becomes audible, oppressive, or narratively significant. Often precedes decisions, realizations, or emotional pivots."
+      data-example="There was a clock‑tick before he answered — the kind that rearranges your future.">
+      clock‑tick
+    </div>
+
+    <div class="glossary-term"
+      data-term="Congratulotions"
+      data-definition="A celebratory utterance delivered with enthusiasm, sincerity, and at least one unnecessary flourish. Used when congratulations alone feel insufficient."
+      data-example="She didn’t just say congratulations — she offered full congratulotions, complete with jazz hands and emotional validation.">
+      Congratulotions
+    </div>
+
+  </div>
+</div>
+
+<!-- G -->
+<h2 id="G" class="gold-pulse">G</h2>
+<div class="glossary-section">
+  <div class="glossary-grid">
+
+    <div class="glossary-term"
+      data-term="graduatiously"
+      data-definition="(adverb) Advancing in life with enthusiasm, ceremony, and a sense of earned momentum."
+      data-example="They moved graduatiously into their next chapter, unsure but undeniably proud.">
+      graduatiously
+    </div>
+
+  </div>
+</div>
+
+<!-- L -->
+<h2 id="L" class="gold-pulse">L</h2>
+<div class="glossary-section">
+  <div class="glossary-grid">
+
+    <div class="glossary-term"
+      data-term="ledger"
+      data-definition="The Harperville™ Blog. A running account of lived experience, emotional bookkeeping, and narrative reconciliation."
+      data-example="The ledger doesn’t judge — it records, reflects, and occasionally sighs.">
+      ledger
+    </div>
+
+  </div>
+</div>
+
+<!-- O -->
+<h2 id="O" class="gold-pulse">O</h2>
+<div class="glossary-section">
+  <div class="glossary-grid">
+
+    <div class="glossary-term"
+      data-term="Ozian Envoy"
+      data-definition="Jack Aspen Harper, serving as the Ozian Ambassador for The Emerald City. A role involving diplomacy, mythic stewardship, and narrative translation between worlds."
+      data-example="As Ozian Envoy, Jack negotiated peace between reality and imagination.">
+      Ozian Envoy
+    </div>
+
+  </div>
+</div>
+
+<!-- P -->
+<h2 id="P" class="gold-pulse">P</h2>
+<div class="glossary-section">
+  <div class="glossary-grid">
+
+    <div class="glossary-term"
+      data-term="Panache"
+      data-definition="A confident and stylish flair; spirited boldness paired with elegance. Not mere showiness, but expressive confidence executed with grace."
+      data-example="She delivered the presentation with panache — effortless, assured, unforgettable.">
+      Panache
+    </div>
+
+    <div class="glossary-term"
+      data-term="purview"
+      data-definition="The scope of authority, responsibility, or concern. Often mistaken for opinion, when it properly denotes jurisdiction."
+      data-example="That decision fell outside his purview, despite his strong feelings about it.">
+      purview
+    </div>
+
+  </div>
+</div>
+
+<p><a href="#top" class="back-to-top-link">BACK TO TOP</a></p>
+
+</main>
+
+<!-- MODAL -->
+<div class="glossary-modal" id="glossaryModal">
+  <div class="glossary-card">
+    <div class="glossary-close" id="glossaryClose">CLOSE ✕</div>
+    <h3 id="modalTerm"></h3>
+    <p id="modalDefinition"></p>
+    <div class="glossary-example" id="modalExample"></div>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById("glossaryModal");
+const modalTerm = document.getElementById("modalTerm");
+const modalDef = document.getElementById("modalDefinition");
+const modalEx = document.getElementById("modalExample");
+const closeBtn = document.getElementById("glossaryClose");
+
+document.querySelectorAll(".glossary-term").forEach(term => {
+  term.addEventListener("click", () => {
+    modalTerm.textContent = term.dataset.term;
+    modalDef.textContent = term.dataset.definition;
+    modalEx.textContent = term.dataset.example || "";
+    modal.style.display = "flex";
+    modal.classList.add("active");
+  });
+});
+
+closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+modal.addEventListener("click", e => {
+  if (e.target === modal) modal.classList.remove("active");
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") modal.classList.remove("active");
+});
+</script>
+
+</body>
+</html>
