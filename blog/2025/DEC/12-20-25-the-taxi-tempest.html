@@ -162,75 +162,20 @@
         display.innerText = rating + "/10 " + emoji;
       }
     });
-</script>
-<script>
-(function() {
-  const hvBlock = document.querySelector('.hv-happy-ending');
-  if (!hvBlock) return;
 
-  // Observe hvBlock into view
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        hvBlock.classList.add('hv-visible');
+    const hvBlock = document.querySelector('.hv-happy-ending');
 
-        // Wait for the print animations to finish before finalizing cursor & splatter
-        // Total animation time estimate: paragraph delays + print duration
-        // Adjust totalDelay if you change CSS timings
-        const totalDelay = 4200; // milliseconds; tune to match CSS (4.2s used earlier)
-        setTimeout(() => {
-          finalizeCursorAndSplatter(hvBlock);
-        }, totalDelay);
-      }
-    });
-  }, { threshold: 0.35 });
+    if (hvBlock) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            hvBlock.classList.add('hv-visible');
+          }
+        });
+      }, { threshold: 0.35 });
 
-  observer.observe(hvBlock);
-
-  function finalizeCursorAndSplatter(block) {
-    // Remove any per-paragraph cursors and add a single end-cursor
-    // Create or reuse a single cursor element appended to the last paragraph
-    const paragraphs = Array.from(block.querySelectorAll('p'));
-    if (!paragraphs.length) return;
-
-    // Remove existing ::after cursor illusions by clearing styles if needed
-    paragraphs.forEach(p => p.style.setProperty('--show-cursor', '0'));
-
-    const last = paragraphs[paragraphs.length - 1];
-
-    // Create a real DOM cursor so we can position it reliably at the end
-    let endCursor = block.querySelector('.hv-end-cursor');
-    if (!endCursor) {
-      endCursor = document.createElement('span');
-      endCursor.className = 'hv-end-cursor';
-      endCursor.setAttribute('aria-hidden', 'true');
-      block.appendChild(endCursor);
+      observer.observe(hvBlock);
     }
-
-    // Place cursor after the last paragraph's text node
-    // Use a zero-width space to ensure the cursor has a stable anchor
-    const zwsp = '\u200B';
-    if (!last.textContent.endsWith(zwsp)) last.textContent = last.textContent + zwsp;
-
-    // Move the cursor element visually to the end by absolutely positioning it
-    // Compute last paragraph bounding box relative to block
-    const lastRect = last.getBoundingClientRect();
-    const blockRect = block.getBoundingClientRect();
-
-    // Position endCursor
-    endCursor.style.position = 'absolute';
-    endCursor.style.width = '2px';
-    endCursor.style.height = '1.2em';
-    endCursor.style.background = 'currentColor';
-    endCursor.style.left = (lastRect.right - blockRect.left) + 'px';
-    endCursor.style.top = (lastRect.top - blockRect.top) + 'px';
-    endCursor.style.transition = 'opacity 0.3s';
-    endCursor.style.opacity = '1';
-
-    // Trigger splatter by toggling a class that your CSS uses for splatter timing
-    block.classList.add('hv-splatter-on');
-  }
-})();
   </script>
 
 </body>
