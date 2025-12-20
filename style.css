@@ -1590,108 +1590,54 @@ html, body {
 .dossier-list strong {
   color: #d4af37;
 }
-/* HARPERVILLE — HAPPY ENDING CURTAIN REVEAL */
+/* HARPERVILLE — HAPPY ENDING TYPEWRITER REVEAL */
 .hv-happy-ending {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.4s ease, transform 1.4s ease;
-  padding: 2rem;
-  margin-top: 3rem;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%);
-  box-shadow: inset 0 0 0 rgba(255, 255, 255, 0);
-  border: 2px solid transparent;
-  background-clip: padding-box;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-top: 2rem;
   position: relative;
   overflow: hidden;
-  z-index: 1;
 }
 
-/* Reveal effect */
+/* When scrolled into view */
 .hv-happy-ending.hv-visible {
   opacity: 1;
   transform: translateY(0);
-  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.1);
-  border-image: linear-gradient(45deg, #ffb6c1, #ffe4e1, #ffb6c1) 1;
-  animation: borderPulse 3s infinite ease-in-out;
 }
 
-/* Border shimmer */
-@keyframes borderPulse {
-  0% { border-image-slice: 1; }
-  50% { border-image-slice: 1; box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.2); }
-  100% { border-image-slice: 1; }
-}
-
-/* 🎀 Ribbon animation across the top */
-.hv-happy-ending::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 6px;
-  background: linear-gradient(90deg, #ff69b4, #ffc0cb, #ff69b4);
-  animation: ribbonSlide 3s ease-in-out forwards;
-  border-radius: 3px;
-  z-index: 2;
-}
-
-@keyframes ribbonSlide {
-  0% { left: -100%; }
-  50% { left: 0%; }
-  100% { left: 100%; }
-}
-
-/* 💫 Sparkle trail on scroll */
-.hv-happy-ending::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, rgba(255, 182, 193, 0.6) 1px, transparent 1px);
-  background-size: 8px 8px;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-  z-index: 0;
-}
-
-.hv-happy-ending.hv-visible::after {
-  opacity: 0.4;
-  animation: sparkleDrift 6s linear infinite;
-}
-
-@keyframes sparkleDrift {
-  0% { background-position: 0 0; }
-  100% { background-position: 100px 100px; }
-}
-
-/* 🪞 Mirror reflection support */
-.hv-happy-ending .reflection {
-  position: relative;
-  margin-top: 2rem;
-  transform: scaleY(-1);
-  opacity: 0.2;
-  filter: blur(2px);
-  z-index: 0;
-}
-
-/* Text styling inside */
-.hv-happy-ending .content {
-  position: relative;
-  z-index: 3;
-}
-
+/* Typewriter effect for each paragraph */
 .hv-happy-ending p {
-  font-family: 'Georgia', serif;
-  font-size: 1.1rem;
-  color: #2c2c2c;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
+  opacity: 0;
+  white-space: pre-wrap;
+  overflow: hidden;
+  border-right: 2px solid rgba(255,255,255,0.4);
+  width: 0;
+  animation: none;
 }
 
-.hv-happy-ending strong {
-  color: #8b0000;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+/* Triggered when visible */
+.hv-happy-ending.hv-visible p {
+  animation: hvTypewriter 2.2s steps(40, end) forwards;
+}
+
+/* Delay each paragraph slightly */
+.hv-happy-ending.hv-visible p:nth-child(2) {
+  animation-delay: 2.3s;
+}
+
+.hv-happy-ending.hv-visible p:nth-child(3) {
+  animation-delay: 4.6s;
+}
+
+/* Typewriter keyframes */
+@keyframes hvTypewriter {
+  0% {
+    opacity: 1;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
 }
