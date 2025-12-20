@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harperville™ | The Taxi Tempest</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%);
+      background-attachment: fixed;
+      overflow-y: auto !important;
+    }
+
+    main.container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 20px 4rem 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    .post-content p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.6;
+      color: #e6e6e6;
+      font-size: 1.05rem;
+    }
+
+    a.exit-link {
+      text-decoration: none;
+      color: #d4af37;
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    /* 🎁 HAPPY ENDING — SCROLL TRIGGERED PARTICLE DISSOLVE */
+    .happy-ending {
+      position: relative;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 182, 193, 0.4);
+      border-radius: 12px;
+      background: rgba(255, 182, 193, 0.05);
+      overflow: hidden;
+      margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    /* When scrolled into view */
+    .happy-ending.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Particle shimmer layer */
+    .happy-ending::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255, 182, 193, 0.8) 0%, rgba(255, 182, 193, 0) 70%);
+      background-size: 6px 6px;
+      opacity: 0;
+      transition: opacity 1.2s ease, transform 1.2s ease;
+      transform: translateY(10px);
+    }
+
+    /* Activate particles when visible */
+    .happy-ending.visible::after {
+      opacity: 0.45;
+      transform: translateY(-10px);
+    }
+
+    /* Text dissolve animation */
+    .happy-ending.visible p {
+      animation: dissolveIn 1.4s ease forwards;
+    }
+
+    @keyframes dissolveIn {
+      0% { opacity: 0; filter: blur(6px); }
+      40% { opacity: 0.4; filter: blur(3px); }
+      70% { opacity: 0.7; filter: blur(1px); }
+      100% { opacity: 1; filter: blur(0px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/ledger.html" class="exit-link">
+      <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
+    </a>
+  </nav>
+
+  <main class="container">
+
+    <header class="post-header">
+      <h1 class="post-title">The Taxi Tempest</h1>
+
+      <div class="status-strip">
+        <div class="status-item">
+          <span class="status-label">LOG DATE</span>
+          <span class="status-value">DEC 20, 2025</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">ESPRESSO</span>
+          <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 0</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">WEATHER</span>
+          <span class="status-value">Emerald Haze (Spin that one, Taylor Swift)...</span>
+        </div>
+
+        <div class="status-item mood-box" data-rating="4">
+          <span class="status-label">MOOD</span>
+          <span class="status-value" id="mood-display">CALCULATING...</span>
+        </div>
+      </div>
+    </header>
+
+    <article class="post-content">
+
+      <p class="lead-paragraph"><strong>Yesterday was one of those days where the universe woke up already sharpening its knives.</strong></p>
+
+      <p>By noon, I was already fried. I had one errand to run. One. And of course, that’s when the taxi app decided to glitch itself into oblivion. At exactly 12:00 p.m., it pinged me with a cheerful little lie: <strong>Your driver has been dispatched! They are 6 minutes away!</strong></p>
+
+      <p>Six minutes. Six minutes. Six minutes. For half an hour. The little cab icon sat there like it was on a smoke break, refusing to move, refusing to update, refusing to acknowledge that I was on a mission with a closing window.</p>
+
+      <p>And the funniest part? The driver’s name was <strong>Elroy</strong>. I’m gonna take a wild stab and say he probably wasn’t scrolling TikTok — which is pretty fucking ironic for a person named Elroy, unless his parents were fans of <em>The Jetsons</em>, in which case, honestly, that would track immensely.</p>
+
+      <p>I’ve been contending with a class of morons in my age bracket or younger for so long that I’ve developed confirmation bias like it’s the fucking flu. So when that little cab icon didn’t move for thirty straight minutes, my brain didn’t go, “Hmm, maybe the app is glitching.” No. It went straight to, “This man is parked at home, eating Funyuns, laughing at my suffering.”</p>
+
+      <p>So yes, I got hot‑headed. I got mouthy. I got <em>done</em>. I was one more frozen pixel away from being banned from the only cab company in town.</p>
+
+      <p>But plot twist: I ended up talking to the operational manager, and it turns out the whole meltdown was caused by a <strong>technical failure</strong> in their live tracking system. No conspiracy. No lazy driver. Just a busted map and a body full of pain that had already burned through its daily ration of niceness.</p>
+
+      <blockquote>
+        Chronic pain drains your ability to be pleasant faster than anything else on earth.
+      </blockquote>
+
+      <p>But this is Harperville™, where we slap a bow on the chaos and pretend it’s character development.</p>
+
+      <!-- 🎁 HAPPY ENDING BLOCK -->
+      <div class="happy-ending">
+        <p>I didn’t get banned.<br>
+        The manager was surprisingly decent.<br>
+        The errand got done.<br>
+        Unfortunately, not by this unicorn-tiger.<br>
+        Albeit, finished and hours after it could've.<br>
+        And I lived to tell the tale, slightly scorched but still standing.</p>
+
+        <p>So yes, everything is “fine.”<br>
+        Fine™ in the Harperville sense:<br>
+        <strong>frayed, furious, exhausted, but upright.</strong></p>
+
+        <p>Sometimes that’s the happiest ending we get.</p>
+      </div>
+
+    </article>
+
+    <footer class="post-footer">
+      <img src="/assets/images/harperville-logo.png" alt="Harperville Logo" class="footer-sig">
+      <p>END OF LOG</p>
+    </footer>
+
+  </main>
+
+  <script>
+    /* Mood Display Logic */
+    document.addEventListener("DOMContentLoaded", function() {
+      const moodBox = document.querySelector('.mood-box');
+      const display = document.getElementById('mood-display');
+
+      if (moodBox) {
+        const rating = parseInt(moodBox.getAttribute('data-rating'));
+        let emoji = "😐";
+        if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+        else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+        else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+        else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+        else if (rating === 10) emoji = "🦄 (Sovereign)";
+        display.innerText = rating + "/10 " + emoji;
+      }
+    });
+
+    /* 🎁 Scroll-triggered reveal for Happy Ending */
+    const happyEnding = document.querySelector('.happy-ending');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          happyEnding.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(happyEnding);
+  </script>
+
+</body>
+</html>
