@@ -1521,6 +1521,76 @@ html, body {
   opacity: 1;
   text-shadow: 0 0 6px #d4af37;
 }
+/* HARPERVILLE — Static "Newly Added" badge for Jukebox */
+.artist-new,
+.artist-link.new::after {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.08rem 0.45rem;
+  font-size: 0.65rem;
+  line-height: 1;
+  vertical-align: text-bottom;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.06); /* subtle gold tint */
+  color: #d4af37; /* Harperville gold */
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
+  font-family: var(--body-font, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: default;
+  user-select: none;
+}
+
+/* If using the ::after approach, inject the label text */
+.artist-link.new::after {
+  content: "NEW";
+}
+
+/* Optional icon variant when you want a small glyph instead of text */
+.artist-new.icon {
+  padding: 0.06rem 0.36rem;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+/* Example using a simple star glyph (no external icon required) */
+.artist-new.icon::before {
+  content: "★";
+  margin-right: 0.28rem;
+  font-size: 0.72rem;
+  vertical-align: -0.08rem;
+  color: #d4af37;
+}
+
+/* Accessibility helper if you want screen reader text only */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Small-screen tweak */
+@media (max-width: 480px) {
+  .artist-new,
+  .artist-link.new::after {
+    margin-left: 0.35rem;
+    padding: 0.06rem 0.36rem;
+    font-size: 0.6rem;
+  }
+}
+
+/* Respect reduced motion (no transitions here, but keep the rule for consistency) */
+@media (prefers-reduced-motion: reduce) {
+  .artist-new,
+  .artist-link.new::after {
+    transition: none;
+  }
+}
 
 /* ============================================================
    JACK'S BIO PAGE
