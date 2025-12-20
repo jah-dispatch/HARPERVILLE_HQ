@@ -1604,6 +1604,7 @@ html, body {
   background-clip: padding-box;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 /* Reveal effect */
@@ -1622,7 +1623,65 @@ html, body {
   100% { border-image-slice: 1; }
 }
 
+/* 🎀 Ribbon animation across the top */
+.hv-happy-ending::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 6px;
+  background: linear-gradient(90deg, #ff69b4, #ffc0cb, #ff69b4);
+  animation: ribbonSlide 3s ease-in-out forwards;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+@keyframes ribbonSlide {
+  0% { left: -100%; }
+  50% { left: 0%; }
+  100% { left: 100%; }
+}
+
+/* 💫 Sparkle trail on scroll */
+.hv-happy-ending::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 182, 193, 0.6) 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 0;
+}
+
+.hv-happy-ending.hv-visible::after {
+  opacity: 0.4;
+  animation: sparkleDrift 6s linear infinite;
+}
+
+@keyframes sparkleDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* 🪞 Mirror reflection support */
+.hv-happy-ending .reflection {
+  position: relative;
+  margin-top: 2rem;
+  transform: scaleY(-1);
+  opacity: 0.2;
+  filter: blur(2px);
+  z-index: 0;
+}
+
 /* Text styling inside */
+.hv-happy-ending .content {
+  position: relative;
+  z-index: 3;
+}
+
 .hv-happy-ending p {
   font-family: 'Georgia', serif;
   font-size: 1.1rem;
@@ -1636,5 +1695,3 @@ html, body {
   font-weight: bold;
   letter-spacing: 0.5px;
 }
-
-
