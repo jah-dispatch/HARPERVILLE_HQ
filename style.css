@@ -1590,7 +1590,7 @@ html, body {
 .dossier-list strong {
   color: #d4af37;
 }
-/* HARPERVILLE — HAPPY ENDING GLITCH TYPEWRITER REVEAL */
+/* HARPERVILLE — HAPPY ENDING GLITCH TYPEWRITER (SAFE VERSION) */
 .hv-happy-ending {
   opacity: 0;
   transform: translateY(20px);
@@ -1607,29 +1607,59 @@ html, body {
 
 /* Base paragraph setup */
 .hv-happy-ending p {
-  position: relative;
-  overflow: hidden;
-  display: block;
   opacity: 0;
+  position: relative;
+  display: block;
   white-space: pre-wrap;
   font-family: 'IBM Plex Mono', monospace;
 }
 
-/* Trigger animations when visible */
+/* Reveal animation */
 .hv-happy-ending.hv-visible p {
   animation:
-    hvFadeIn 0.3s ease forwards,
-    hvMaskReveal 2.2s steps(40) forwards,
-    hvGlitch 0.25s steps(2, end) 0.4s 3;
+    hvFadeIn 0.4s ease forwards,
+    hvGlitchType 1.6s steps(30, end) forwards;
 }
 
 /* Delay each paragraph */
 .hv-happy-ending.hv-visible p:nth-child(2) {
-  animation-delay:
-    2.4s,
-    2.4s,
-    2.8s;
+  animation-delay: 1.8s, 1.8s;
 }
 
 .hv-happy-ending.hv-visible p:nth-child(3) {
-  animation-delay
+  animation-delay: 3.6s, 3.6s;
+}
+
+/* Fade in */
+@keyframes hvFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Glitchy pseudo-typewriter effect */
+@keyframes hvGlitchType {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+  10% {
+    text-shadow: 1px 0 rgba(255,0,0,0.4), -1px 0 rgba(0,150,255,0.4);
+  }
+  20% {
+    text-shadow: -1px 0 rgba(255,0,0,0.4), 1px 0 rgba(0,150,255,0.4);
+  }
+  30% {
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: none;
+  }
+}
+
+/* Blinking cursor */
+.hv-happy-ending p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom
