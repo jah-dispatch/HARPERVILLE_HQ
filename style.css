@@ -1590,7 +1590,7 @@ html, body {
 .dossier-list strong {
   color: #d4af37;
 }
-/* HARPERVILLE — HAPPY ENDING PRINTED-ON-PAPER + SPLATTER */
+/* HARPERVILLE — HAPPY ENDING PRINTED-ON-PAPER REVEAL */
 .hv-happy-ending {
   opacity: 0;
   transform: translateY(20px);
@@ -1613,7 +1613,6 @@ html, body {
   white-space: pre-wrap;
   font-family: 'IBM Plex Mono', monospace;
   transform: translateY(10px);
-  overflow: visible;
 }
 
 /* Reveal animation */
@@ -1668,17 +1667,17 @@ html, body {
   }
 }
 
-/* Cursor at END of line */
+/* Blinking cursor */
 .hv-happy-ending p::after {
   content: "";
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 2px;
   height: 1.2em;
   background: currentColor;
   opacity: 0;
   animation: hvCursorBlink 0.8s step-end infinite;
-  transform: translateX(0);
 }
 
 /* Cursor only appears during reveal */
@@ -1691,56 +1690,4 @@ html, body {
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
-}
-
-/* Position cursor at END of printed text */
-.hv-happy-ending.hv-visible p {
-  animation-fill-mode: forwards;
-}
-
-.hv-happy-ending.hv-visible p::after {
-  left: auto;
-  right: 0;
-}
-
-/* SPLATTER EFFECT — appears after printing */
-.hv-happy-ending::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(0,0,0,0.25) 2px, transparent 2px),
-    radial-gradient(circle, rgba(0,0,0,0.15) 1.5px, transparent 1.5px),
-    radial-gradient(circle, rgba(0,0,0,0.2) 1px, transparent 1px);
-  background-size: 14px 14px, 18px 18px, 22px 22px;
-  background-position: 0 0, 10px 5px, 5px 12px;
-  opacity: 0;
-  pointer-events: none;
-  animation: hvSplatterReveal 1.2s ease forwards;
-  animation-delay: 4.2s; /* appears after all paragraphs print */
-}
-
-@keyframes hvSplatterReveal {
-  0% { opacity: 0; filter: blur(4px); }
-  100% { opacity: 0.25; filter: blur(0); }
-}
-/* DOM end-cursor (used by the JS) */
-.hv-end-cursor {
-  pointer-events: none;
-  z-index: 5;
-  opacity: 0;
-  box-shadow: none;
-}
-
-/* When splatter is enabled, reveal the ::before splatter */
-.hv-happy-ending::before {
-  opacity: 0;
-  transition: opacity 0.6s ease, filter 0.6s ease;
-  pointer-events: none;
-}
-
-/* Toggle splatter on */
-.hv-happy-ending.hv-splatter-on::before {
-  opacity: 0.25; /* tune */
-  filter: blur(0);
 }
