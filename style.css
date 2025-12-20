@@ -1590,28 +1590,51 @@ html, body {
 .dossier-list strong {
   color: #d4af37;
 }
-/* HARPERVILLE — HAPPY ENDING REVEAL */
+/* HARPERVILLE — HAPPY ENDING CURTAIN REVEAL */
 .hv-happy-ending {
   opacity: 0;
-  transform: translateY(20px);
-  filter: blur(6px);
-  transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 182, 193, 0.35);
-  background: rgba(255, 182, 193, 0.06);
-  margin-top: 2rem;
+  transform: translateY(40px);
+  transition: opacity 1.4s ease, transform 1.4s ease;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%);
+  box-shadow: inset 0 0 0 rgba(255, 255, 255, 0);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
 }
 
-/* When scrolled into view */
+/* Reveal effect */
 .hv-happy-ending.hv-visible {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0px);
+  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.1);
+  border-image: linear-gradient(45deg, #ffb6c1, #ffe4e1, #ffb6c1) 1;
+  animation: borderPulse 3s infinite ease-in-out;
 }
 
-/* Optional soft glow */
-.hv-happy-ending.hv-visible {
-  box-shadow: 0 0 18px rgba(255, 182, 193, 0.15);
+/* Border shimmer */
+@keyframes borderPulse {
+  0% { border-image-slice: 1; }
+  50% { border-image-slice: 1; box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.2); }
+  100% { border-image-slice: 1; }
 }
+
+/* Text styling inside */
+.hv-happy-ending p {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  color: #2c2c2c;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+.hv-happy-ending strong {
+  color: #8b0000;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
 
