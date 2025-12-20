@@ -1590,7 +1590,7 @@ html, body {
 .dossier-list strong {
   color: #d4af37;
 }
-/* HARPERVILLE — HAPPY ENDING GLITCH TYPEWRITER (SAFE VERSION) */
+/* HARPERVILLE — HAPPY ENDING PRINTED-ON-PAPER REVEAL */
 .hv-happy-ending {
   opacity: 0;
   transform: translateY(20px);
@@ -1612,48 +1612,58 @@ html, body {
   display: block;
   white-space: pre-wrap;
   font-family: 'IBM Plex Mono', monospace;
+  transform: translateY(10px);
 }
 
 /* Reveal animation */
 .hv-happy-ending.hv-visible p {
   animation:
-    hvFadeIn 0.4s ease forwards,
-    hvGlitchType 1.6s steps(30, end) forwards;
+    hvPaperFade 0.6s ease forwards,
+    hvPaperPrint 1.4s ease-out forwards;
 }
 
 /* Delay each paragraph */
 .hv-happy-ending.hv-visible p:nth-child(2) {
-  animation-delay: 1.8s, 1.8s;
+  animation-delay: 1.4s, 1.4s;
 }
 
 .hv-happy-ending.hv-visible p:nth-child(3) {
-  animation-delay: 3.6s, 3.6s;
+  animation-delay: 2.8s, 2.8s;
 }
 
-/* Fade in */
-@keyframes hvFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Glitchy pseudo-typewriter effect */
-@keyframes hvGlitchType {
+/* Fade + slide up */
+@keyframes hvPaperFade {
   0% {
-    opacity: 1;
-    text-shadow: 0 0 0 rgba(255,255,255,0);
-  }
-  10% {
-    text-shadow: 1px 0 rgba(255,0,0,0.4), -1px 0 rgba(0,150,255,0.4);
-  }
-  20% {
-    text-shadow: -1px 0 rgba(255,0,0,0.4), 1px 0 rgba(0,150,255,0.4);
-  }
-  30% {
-    text-shadow: 0 0 0 rgba(255,255,255,0);
+    opacity: 0;
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    text-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+/* Printed-on-paper effect */
+@keyframes hvPaperPrint {
+  0% {
+    filter: brightness(0.4) blur(2px);
+    letter-spacing: 0.5px;
+  }
+  20% {
+    filter: brightness(0.7) blur(1.5px);
+  }
+  40% {
+    filter: brightness(0.9) blur(1px);
+  }
+  60% {
+    filter: brightness(1) blur(0.6px);
+  }
+  80% {
+    filter: brightness(1.05) blur(0.3px);
+  }
+  100% {
+    filter: brightness(1) blur(0);
+    letter-spacing: 0;
   }
 }
 
@@ -1662,4 +1672,22 @@ html, body {
   content: "";
   position: absolute;
   left: 0;
-  bottom
+  bottom: 0;
+  width: 2px;
+  height: 1.2em;
+  background: currentColor;
+  opacity: 0;
+  animation: hvCursorBlink 0.8s step-end infinite;
+}
+
+/* Cursor only appears during reveal */
+.hv-happy-ending.hv-visible p::after {
+  opacity: 1;
+}
+
+/* Cursor blink */
+@keyframes hvCursorBlink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
