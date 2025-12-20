@@ -165,14 +165,14 @@ A living, unofficial, emotionally accurate dictionary of Harperville™ language
 
     <div class="glossary-term"
       data-term="clock‑tick"
-      data-definition="A moment when time becomes audible, oppressive, or narratively significant. Often precedes decisions, realizations, or emotional pivots."
+      data-definition="(adverb) A moment when time becomes audible, oppressive, or narratively significant. Often precedes decisions, realizations, or emotional pivots."
       data-example="There was a clock‑tick before he answered — the kind that rearranges your future.">
       clock‑tick
     </div>
 
     <div class="glossary-term"
       data-term="Congratulotions"
-      data-definition="A celebratory utterance delivered with enthusiasm, sincerity, and at least one unnecessary flourish. Used when congratulations alone feel insufficient."
+      data-definition="(interjection/noun) A celebratory utterance delivered with enthusiasm, sincerity, and at least one unnecessary flourish. Used when congratulations alone feel insufficient."
       data-example="She didn’t just say congratulations — she offered full congratulotions, complete with jazz hands and emotional validation.">
       Congratulotions
     </div>
@@ -202,7 +202,7 @@ A living, unofficial, emotionally accurate dictionary of Harperville™ language
 
     <div class="glossary-term"
       data-term="ledger"
-      data-definition="The Harperville™ Blog. A running account of lived experience, emotional bookkeeping, and narrative reconciliation."
+      data-definition="(proper noun) The Harperville™ Blog. A running account of lived experience, emotional bookkeeping, and narrative reconciliation."
       data-example="The ledger doesn’t judge — it records, reflects, and occasionally sighs.">
       ledger
     </div>
@@ -217,7 +217,7 @@ A living, unofficial, emotionally accurate dictionary of Harperville™ language
 
     <div class="glossary-term"
       data-term="Ozian Envoy"
-      data-definition="Jack Aspen Harper, serving as the Ozian Ambassador for The Emerald City. A role involving diplomacy, mythic stewardship, and narrative translation between worlds."
+      data-definition="(proper noun) Jack Aspen Harper, serving as the Ozian Ambassador for The Emerald City. A role involving diplomacy, mythic stewardship, and narrative translation between worlds."
       data-example="As Ozian Envoy, Jack negotiated peace between reality and imagination.">
       Ozian Envoy
     </div>
@@ -232,14 +232,14 @@ A living, unofficial, emotionally accurate dictionary of Harperville™ language
 
     <div class="glossary-term"
       data-term="Panache"
-      data-definition="A confident and stylish flair; spirited boldness paired with elegance. Not mere showiness, but expressive confidence executed with grace."
+      data-definition="(adverb) A confident and stylish flair; spirited boldness paired with elegance. Not mere showiness, but expressive confidence executed with grace."
       data-example="She delivered the presentation with panache — effortless, assured, unforgettable.">
       Panache
     </div>
 
     <div class="glossary-term"
       data-term="purview"
-      data-definition="The scope of authority, responsibility, or concern. Often mistaken for opinion, when it properly denotes jurisdiction."
+      data-definition="(noun) The scope of authority, responsibility, or concern. Often mistaken for opinion, when it properly denotes jurisdiction."
       data-example="That decision fell outside his purview, despite his strong feelings about it.">
       purview
     </div>
@@ -262,31 +262,42 @@ A living, unofficial, emotionally accurate dictionary of Harperville™ language
 </div>
 
 <script>
-const modal = document.getElementById("glossaryModal");
-const modalTerm = document.getElementById("modalTerm");
-const modalDef = document.getElementById("modalDefinition");
-const modalEx = document.getElementById("modalExample");
-const closeBtn = document.getElementById("glossaryClose");
+document.addEventListener("DOMContentLoaded", () => {
 
-document.querySelectorAll(".glossary-term").forEach(term => {
-  term.addEventListener("click", () => {
-    modalTerm.textContent = term.dataset.term;
-    modalDef.textContent = term.dataset.definition;
-    modalEx.textContent = term.dataset.example || "";
-    modal.style.display = "flex";
-    modal.classList.add("active");
+  const modal = document.getElementById("glossaryModal");
+  const modalTerm = document.getElementById("modalTerm");
+  const modalDef = document.getElementById("modalDefinition");
+  const modalEx = document.getElementById("modalExample");
+  const closeBtn = document.getElementById("glossaryClose");
+
+  document.querySelectorAll(".glossary-term").forEach(term => {
+    term.addEventListener("click", () => {
+      modalTerm.textContent = term.dataset.term;
+      modalDef.textContent = term.dataset.definition;
+      modalEx.textContent = term.dataset.example || "";
+      modal.classList.add("active");
+    });
   });
-});
 
-closeBtn.addEventListener("click", () => modal.classList.remove("active"));
-modal.addEventListener("click", e => {
-  if (e.target === modal) modal.classList.remove("active");
-});
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") modal.classList.remove("active");
+  modal.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      modal.classList.remove("active");
+    }
+  });
+
 });
 </script>
+
 
 </body>
 </html>
