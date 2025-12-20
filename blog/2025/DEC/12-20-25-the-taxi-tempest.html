@@ -19,6 +19,17 @@
       overflow-y: auto !important;
     }
 
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.05;
+    }
+
     main.container {
       width: 100%;
       max-width: 800px;
@@ -39,9 +50,6 @@
     .post-content p {
       word-wrap: break-word;
       overflow-wrap: break-word;
-      line-height: 1.6;
-      color: #e6e6e6;
-      font-size: 1.05rem;
     }
 
     a.exit-link {
@@ -50,60 +58,8 @@
       font-family: monospace;
       font-weight: bold;
     }
-
-    /* 🎁 HAPPY ENDING — SCROLL TRIGGERED PARTICLE DISSOLVE */
-    .happy-ending {
-      position: relative;
-      padding: 1.5rem;
-      border: 1px solid rgba(255, 182, 193, 0.4);
-      border-radius: 12px;
-      background: rgba(255, 182, 193, 0.05);
-      overflow: hidden;
-      margin-top: 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    /* When scrolled into view */
-    .happy-ending.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Particle shimmer layer */
-    .happy-ending::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255, 182, 193, 0.8) 0%, rgba(255, 182, 193, 0) 70%);
-      background-size: 6px 6px;
-      opacity: 0;
-      transition: opacity 1.2s ease, transform 1.2s ease;
-      transform: translateY(10px);
-    }
-
-    /* Activate particles when visible */
-    .happy-ending.visible::after {
-      opacity: 0.45;
-      transform: translateY(-10px);
-    }
-
-    /* Text dissolve animation */
-    .happy-ending.visible p {
-      animation: dissolveIn 1.4s ease forwards;
-    }
-
-    @keyframes dissolveIn {
-      0% { opacity: 0; filter: blur(6px); }
-      40% { opacity: 0.4; filter: blur(3px); }
-      70% { opacity: 0.7; filter: blur(1px); }
-      100% { opacity: 1; filter: blur(0px); }
-    }
   </style>
 </head>
-
 <body>
 
   <nav>
@@ -125,7 +81,7 @@
 
         <div class="status-item">
           <span class="status-label">ESPRESSO</span>
-          <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 0</span>
+          <span class="status-value"><i class="fa-solid fa-mug-hot"></i>6 SHOTS</span>
         </div>
 
         <div class="status-item">
@@ -162,8 +118,7 @@
 
       <p>But this is Harperville™, where we slap a bow on the chaos and pretend it’s character development.</p>
 
-      <!-- 🎁 HAPPY ENDING BLOCK -->
-      <div class="happy-ending">
+      <div class="hv-happy-ending">
         <p>I didn’t get banned.<br>
         The manager was surprisingly decent.<br>
         The errand got done.<br>
@@ -188,7 +143,6 @@
   </main>
 
   <script>
-    /* Mood Display Logic */
     document.addEventListener("DOMContentLoaded", function() {
       const moodBox = document.querySelector('.mood-box');
       const display = document.getElementById('mood-display');
@@ -205,19 +159,21 @@
       }
     });
 
-    /* 🎁 Scroll-triggered reveal for Happy Ending */
-    const happyEnding = document.querySelector('.happy-ending');
+    const hvBlock = document.querySelector('.hv-happy-ending');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          happyEnding.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.4 });
+    if (hvBlock) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            hvBlock.classList.add('hv-visible');
+          }
+        });
+      }, { threshold: 0.35 });
 
-    observer.observe(happyEnding);
+      observer.observe(hvBlock);
+    }
   </script>
 
 </body>
+
 </html>

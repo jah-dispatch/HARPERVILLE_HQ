@@ -1590,4 +1590,28 @@ html, body {
 .dossier-list strong {
   color: #d4af37;
 }
+/* HARPERVILLE — HAPPY ENDING REVEAL */
+.hv-happy-ending {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(6px);
+  transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 182, 193, 0.35);
+  background: rgba(255, 182, 193, 0.06);
+  margin-top: 2rem;
+}
+
+/* When scrolled into view */
+.hv-happy-ending.hv-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+/* Optional soft glow */
+.hv-happy-ending.hv-visible {
+  box-shadow: 0 0 18px rgba(255, 182, 193, 0.15);
+}
 
