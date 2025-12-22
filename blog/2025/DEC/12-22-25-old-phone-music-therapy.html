@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harperville™ | Old Phone, Quiet Grief</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%);
+      background-attachment: fixed;
+      overflow-y: auto !important;
+    }
+
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.05;
+    }
+
+    main.container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 20px 4rem 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+      animation: driftIn 2.5s ease-out forwards;
+    }
+
+    @keyframes driftIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    a.exit-link {
+      text-decoration: none;
+      color: #d4af37;
+      font-family: monospace;
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+    a.exit-link:hover {
+      opacity: 1;
+    }
+
+    .post-title {
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { text-shadow: 0 0 6px rgba(212,175,55,0.3); }
+      50% { text-shadow: 0 0 14px rgba(212,175,55,0.6); }
+    }
+
+    .post-content p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.7;
+    }
+
+    blockquote {
+      border-left: 3px solid #d4af37;
+      padding-left: 1rem;
+      margin: 2rem 0;
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    .footer-sig {
+      opacity: 0.6;
+      animation: floatSig 8s ease-in-out infinite;
+    }
+
+    @keyframes floatSig {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .lyric-ghost {
+  position: fixed;
+  top: 20%;
+  width: 160px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: rgba(212, 175, 55, 0.25);
+  pointer-events: none;
+  animation: drift 18s linear infinite;
+}
+
+.lyric-ghost span {
+  display: block;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeFloat 18s linear infinite;
+}
+
+.lyric-ghost.left {
+  left: 10px;
+}
+
+.lyric-ghost.right {
+  right: 10px;
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+@keyframes fadeFloat {
+  0% { opacity: 0; }
+  10% { opacity: 0.4; }
+  40% { opacity: 0.4; }
+  60% { opacity: 0.2; }
+  100% { opacity: 0; }
+}
+
+/* 📱 Mobile Safety */
+@media (max-width: 768px) {
+  .lyric-ghost {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/ledger.html" class="exit-link">
+      <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
+    </a>
+  </nav>
+
+  <main class="container">
+    <div class="lyric-ghost left">
+  <span>missed calls</span>
+  <span>drafts unsent</span>
+  <span>voices that faded</span>
+</div>
+
+<div class="lyric-ghost right">
+  <span>time kept moving</span>
+  <span>no way back</span>
+  <span>still ringing</span>
+</div>
+
+
+    <header class="post-header">
+      <h1 class="post-title">Old Phone, Quiet Grief</h1>
+
+      <div class="status-strip">
+        <div class="status-item">
+          <span class="status-label">LOG DATE</span>
+          <span class="status-value">DEC 22, 2025</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">ESPRESSO</span>
+          <span class="status-value"><i class="fa-solid fa-mug-hot"></i> 1 SHOT</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">WEATHER</span>
+          <span class="status-value">Cold, still, emotionally overcast</span>
+        </div>
+
+        <div class="status-item mood-box" data-rating="4">
+          <span class="status-label">MOOD</span>
+          <span class="status-value" id="mood-display">CALCULATING...</span>
+        </div>
+      </div>
+    </header>
+
+    <article class="post-content">
+      <p class="lead-paragraph">
+        <strong>
+          There’s a song by Ed Sheeran called <em>Old Phone</em> that feels less like music and more like a forensic report on my entire life.
+        </strong>
+      </p>
+
+      <p>
+        Not in a dramatic way. In a quietly devastating way. It’s the kind of song that doesn’t ask permission before opening a drawer you forgot you’d sealed. The kind that reminds you that memory isn’t linear — it’s archival. It lives in objects, timestamps, and emotional residue.
+      </p>
+
+      <p>
+        If there is one song that can summarize a lifetime of pain, displacement, and scrutiny, it’s this one. And dang it, Ed knows how to make a unicorn cry. I can’t go back and do anything differently, despite my deepest desire to. Memory is not a time machine. It’s a ledger.
+      </p>
+
+      <p>
+        This time of year demands performative joy at any cost. It insists that grief be postponed, that sadness be wrapped in tinsel, that everyone smile for the group photo even if they’re bleeding internally. I’m not celebrating Christmas this year. I’m celebrating survival.
+      </p>
+
+      <blockquote>
+        Old Phone isn’t nostalgic. It’s forensic. It’s about the people who never called back, the versions of yourself that didn’t survive the timeline, and the conversations that live forever in drafts.
+      </blockquote>
+
+      <span class="gold-pulse">It’s okay to have a bad day. It’s okay to opt out of joy theater. Some years are about endurance, not celebration. Harperville™ remains open. The ledger is still being written.</span>
+              
+    </article>
+
+    <footer class="post-footer">
+      <img src="/assets/images/harperville-logo.png" alt="Harperville Logo" class="footer-sig">
+      <p>END OF LOG</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const moodBox = document.querySelector('.mood-box');
+      const display = document.getElementById('mood-display');
+
+      if (moodBox) {
+        const rating = parseInt(moodBox.getAttribute('data-rating'));
+        let emoji = "😐";
+        if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+        else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+        else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+        else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+        else if (rating === 10) emoji = "🦄 (Sovereign)";
+        display.innerText = rating + "/10 " + emoji;
+      }
+    });
+  </script>
+</body>
+</html>
