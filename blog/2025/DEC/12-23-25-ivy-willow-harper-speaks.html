@@ -107,47 +107,47 @@
    <!-- Ivy Mode Begins -->
 <article class="post-content ivy-mode">
 
-  <p class="lead-paragraph">
+  <p class="ivy-line">
     <strong>Greetings. I am Ivy Willow Harper, Certified Familiar and Acting Harperville™ Oracle. This is my official report on December 2025.</strong>
   </p>
 
-  <p>
+  <p class="ivy-line">
     I have spent the past month observing my human, Jack Aspen Harper, with the seriousness of a general and the judgment of a creature who understands <em>Temporal Kibble Law</em> and knows when dinner is late by exactly three minutes.
   </p>
 
-  <p>
+  <p class="ivy-line">
     This month registered as a sustained period of <em>Emotional Weather Instability</em>, marked by cosmic nonsense, bureaucratic static, and several long silences that were not actually silent at all. The room would appear calm, but my human’s mind? Hosting a full <em>Internal Orchestra Event</em>, complete with tuning, percussion, and existential brass.
   </p>
 
-  <p>
+  <p class="ivy-line">
     I supervised from elevated surfaces, as required by <em>Familiar Oversight Protocol</em>. This is my role as The Harperville™ Oracle, and I take it seriously.
   </p>
 
-  <blockquote>
+  <blockquote class="ivy-line">
     Humans think silence means peace. Cats know better. Silence is merely the pause between thoughts.
   </blockquote>
 
-  <p>
+  <p class="ivy-line">
     There was a turning point at 3 a.m. — a recognized <em>Liminal Hour</em> in Harperville™ timekeeping — when humans either spiral into narrative collapse or finally issue a formal Notice to the Universe. My human chose the latter, invoking <em>Cosmic Accountability Clause</em>. I approved.
   </p>
 
-  <p>
+  <p class="ivy-line">
     Shortly thereafter, the universe responded with what we classify as <em>Financial Breadcrumbs</em>, a dramatic <em>Credit Ledger Recalibration</em>, and the long‑awaited arrival of an important envelope previously lost to <em>Postal Pilgrimage Drift</em>. I will not say I caused this. I will also not deny my involvement.
   </p>
 
-  <p>
+  <p class="ivy-line">
     Each morning, my human performs the <em>Oat Ritual</em>: warm food, quiet room, no talking. This is a sanctioned <em>Nervous System Reset</em>, during which the internal orchestra finally takes a break. I supervise respectfully. Sometimes from the counter. Sometimes from the bowl’s immediate vicinity.
   </p>
 
-  <p>
+  <p class="ivy-line">
     Today, my human meets with the <em>Professional Listener</em>, a trusted figure within the <em>Maintenance of the Self</em> division. This is <em>good</em>. It keeps the household functional and the narrative intact.
   </p>
 
-  <p>
+  <p class="ivy-line">
     In conclusion: the month was <strong>loud, heavy, and absurd</strong> — a textbook case of <em>Extended Plot Compression</em> — but my human remains present, most assuredly trying, and continuing to feed me on time. <em>(Well, mostly.)</em> I will continue to intervene as needed under <em>Feline Emergency Powers</em>.
   </p>
 
-  <p>
+  <p class="ivy-line">
     You’re most fucking welcome, Oopie. This report is now filed in the Ledger.
   </p>
 
@@ -190,6 +190,51 @@
       });
     });
   </script>
+  
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lines = document.querySelectorAll('.ivy-mode .ivy-line');
+  let currentLine = 0;
+
+  const cursor = document.createElement('span');
+  cursor.className = 'ivy-cursor';
+
+  lines.forEach(line => {
+    line.dataset.text = line.textContent;
+    line.textContent = '';
+    line.style.visibility = 'hidden';
+  });
+
+  function typeLine(line, callback) {
+    line.style.visibility = 'visible';
+    let i = 0;
+    line.appendChild(cursor);
+
+    const interval = setInterval(() => {
+      if (i < line.dataset.text.length) {
+        cursor.insertAdjacentText('beforebegin', line.dataset.text.charAt(i));
+        i++;
+      } else {
+        clearInterval(interval);
+        cursor.remove();
+        callback();
+      }
+    }, 35); // typing speed
+  }
+
+  function nextLine() {
+    if (currentLine < lines.length) {
+      typeLine(lines[currentLine], () => {
+        currentLine++;
+        setTimeout(nextLine, 1200); // Ivy pause between thoughts
+      });
+    }
+  }
+
+  setTimeout(nextLine, 800); // initial dramatic delay
+});
+</script>
+
 
 </body>
 </html>

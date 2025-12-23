@@ -931,6 +931,18 @@ body.cinematic-lock {
 .ivy-mode h3 {
   font-family: inherit;
 }
+.ivy-cursor {
+  display: inline-block;
+  width: 8px;
+  margin-left: 2px;
+  background-color: rgba(212, 175, 55, 0.6);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
 
 
 /* --- LAYOUT & SCROLLING FIXES --- */
