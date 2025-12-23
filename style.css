@@ -1794,3 +1794,65 @@ html, body {
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
+/* Possibilities Board */
+
+.possibilities-board {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Accordion container */
+.possibility {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1rem;
+}
+
+/* Remove default marker */
+.possibility summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.possibility summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Title styling */
+.possibility-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.possibility[open] .possibility-title {
+  opacity: 1;
+}
+
+/* Content spacing */
+.possibility img {
+  margin-top: 1rem;
+}
+
+.possibility .bio-text {
+  margin-top: 1rem;
+}
+
+/* Gentle open animation */
+.possibility > *:not(summary) {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
