@@ -467,7 +467,7 @@ body.cinematic-lock {
 /* Possibilities card icon — force render */
 .possibilities-icon {
   font-size: 2.5rem;
-  color: gold;
+  color: rgb(236, 22, 7);
   margin-bottom: 0.75rem;
 
   display: block;
