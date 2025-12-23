@@ -464,6 +464,17 @@ body.cinematic-lock {
   color: gold;
   filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
 }
+/* Possibilities card icon — force render */
+.possibilities-icon {
+  font-size: 2.5rem;
+  color: gold;
+  margin-bottom: 0.75rem;
+
+  display: block;
+  line-height: 1;
+
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
+}
 
 
 /* --- MOBILE RESPONSIVENESS --- */
