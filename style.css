@@ -443,19 +443,28 @@ body.cinematic-lock {
     margin-bottom: 1rem;
     opacity: 0.8;
 }
+/* Possibilities: Standard Bento Tile */
 .possibilities-card {
-  background: linear-gradient(
-    135deg,
-    rgba(191,149,63,0.15),
-    rgba(252,246,186,0.08)
-  );
-  border: 1px solid rgba(255,215,0,0.25);
+  grid-column: span 1;
+  grid-row: span 1;
+
+  border: 1px solid var(--oz-gold);
+  background: rgba(255, 215, 0, 0.03);
+
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+.possibilities-card:hover {
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Icon styling — matches Vault energy */
 .possibilities-card i {
   color: gold;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
 }
+
 
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
