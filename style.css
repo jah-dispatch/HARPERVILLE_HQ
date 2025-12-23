@@ -916,6 +916,22 @@ body.cinematic-lock {
     margin-bottom: 1rem;
     filter: grayscale(1);
 }
+
+/* Ivy Handwriting Mode */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+
+.ivy-mode {
+  font-family: 'Comic Neue', cursive;
+  letter-spacing: 0.02em;
+}
+
+.ivy-mode p,
+.ivy-mode blockquote,
+.ivy-mode h2,
+.ivy-mode h3 {
+  font-family: 'Comic Neue', cursive;
+}
+
 /* --- LAYOUT & SCROLLING FIXES --- */
 
 /* 1. Ensure the main window allows scrolling */
