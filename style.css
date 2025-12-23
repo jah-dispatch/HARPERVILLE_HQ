@@ -942,6 +942,10 @@ body.cinematic-lock {
 @keyframes blink {
   to { visibility: hidden; }
 }
+.ivy-interrupt {
+  font-style: italic;
+  opacity: 0.85;
+}
 
 
 
