@@ -443,6 +443,19 @@ body.cinematic-lock {
     margin-bottom: 1rem;
     opacity: 0.8;
 }
+.possibilities-card {
+  background: linear-gradient(
+    135deg,
+    rgba(191,149,63,0.15),
+    rgba(252,246,186,0.08)
+  );
+  border: 1px solid rgba(255,215,0,0.25);
+}
+
+.possibilities-card i {
+  color: gold;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+}
 
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
@@ -1923,4 +1936,44 @@ html, body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* Gold shimmer frame for Possibilities images */
+
+.gold-frame {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* The animated gold aura */
+.gold-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    to right,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #bf953f
+  );
+
+  background-size: 200% auto;
+  animation: gold-shimmer 3s linear infinite;
+
+  filter: blur(6px);
+  opacity: 0.75;
+  z-index: 0;
+}
+
+/* Keep image crisp above the glow */
+.gold-frame img {
+  position: relative;
+  z-index: 1;
+  border-radius: 6px;
+  background: #000;
 }
