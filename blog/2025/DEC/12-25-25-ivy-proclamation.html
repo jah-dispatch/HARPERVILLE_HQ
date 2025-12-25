@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harperville™ | The Last 48 Hours</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      background-image: radial-gradient(circle at center, #0f2e22 0%, #000000 100%);
+      background-attachment: fixed;
+      overflow-y: auto !important;
+    }
+
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.05;
+    }
+
+    main.container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 20px 4rem 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    .post-content p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    a.exit-link {
+      text-decoration: none;
+      color: #d4af37;
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    /* Ivy-specific visual flair */
+    .ivy-mode blockquote {
+      border-left: 3px dashed #d4af37;
+      padding-left: 1rem;
+      margin: 2rem 0;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/ledger.html" class="exit-link">
+      <i class="fa-solid fa-arrow-left"></i> BACK TO LEDGER
+    </a>
+  </nav>
+
+  <main class="container">
+
+    <header class="post-header">
+      <h1 class="post-title">The Last 48 Hours</h1>
+
+      <div class="status-strip">
+        <div class="status-item">
+          <span class="status-label">LOG DATE</span>
+          <span class="status-value">DEC 25, 2025</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">ESPRESSO</span>
+          <span class="status-value"><i class="fa-solid fa-mug-hot"></i>6 SHOTS (Oopie is on PAR!)</span>
+        </div>
+
+        <div class="status-item">
+          <span class="status-label">WEATHER</span>
+          <span class="status-value">Absofuckinglution</span>
+        </div>
+
+        <div class="status-item mood-box" data-rating="10">
+          <span class="status-label">MOOD</span>
+          <span class="status-value" id="mood-display">CALCULATING...</span>
+        </div>
+      </div>
+    </header>
+
+  <!-- Ivy Mode Begins -->
+
+<article class="post-content ivy-mode">
+
+  <p class="ivy-line"><strong>Hello.</strong></p>
+
+  <p class="ivy-line">It is I.</p>
+
+  <p class="ivy-line">The one with the whiskers.</p>
+
+  <p class="ivy-line">The one who knows when something has shifted before anyone else does.</p>
+
+  <p class="ivy-line ivy-revise" data-replace="Actually, cosmic turbulence disguised as domestic calm.">The last two days have been… interesting.</p>
+
+  <p class="ivy-line">My human has been vibrating differently.</p>
+
+  <p class="ivy-line">Less braced.</p>
+
+  <p class="ivy-line">More open.</p>
+
+  <p class="ivy-line ivy-interrupt">Still dramatic — obviously — but in a way that smells like relief instead of fear.</p>
+
+  <p class="ivy-line">Yesterday, the house filled with light.</p>
+
+  <p class="ivy-line">Not the loud kind.</p>
+
+  <p class="ivy-line ivy-revise" data-replace="The kind that whispers, 'nap like a deity.'">The quiet kind that settles into corners and makes naps deeper.</p>
+
+  <blockquote class="ivy-line">There were tears. Important ones. The kind that don’t mean danger.</blockquote>
+
+  <p class="ivy-line">There was remembering.</p>
+  <p class="ivy-line">There was courage.</p>
+  <p class="ivy-line ivy-revise" data-replace="Translation: My human finally realized they’re not broken — just mid-upgrade.">There was a moment where my human realized they are not broken — just in progress.</p>
+
+  <p class="ivy-line">I supervised closely.</p>
+
+  <p class="ivy-line">There were snacks.</p>
+  <p class="ivy-line">There were lattes.</p>
+  <p class="ivy-line ivy-revise" data-replace="Gummies? Absolutely not. I am a creature of standards.">There were questionable gummies. I do not approve of gummies.</p>
+  <p class="ivy-line">But I approve of the peace that followed.</p>
+
+  <p class="ivy-line">At one point, I was temporarily exiled from the bedroom.</p>
+  <p class="ivy-line ivy-interrupt">This was rude.</p>
+  <p class="ivy-line ivy-revise" data-replace="Fine. Laundry diplomacy accepted.">But I forgave it, because boundaries were being practiced and laundry was involved.</p>
+
+  <p class="ivy-line">The machine that hums and glows stopped screaming.</p>
+  <p class="ivy-line">Apparently, a digital gremlin named Aura was removed.</p>
+  <p class="ivy-line ivy-interrupt">Good. I do not trust things that consume resources without offering warmth.</p>
+
+  <p class="ivy-line">This morning, my human woke up and said something important.</p>
+  <blockquote class="ivy-line">“It is well.”</blockquote>
+
+  <p class="ivy-line">Not perfect.</p>
+  <p class="ivy-line">Not finished.</p>
+  <p class="ivy-line ivy-revise" data-replace="But holy whiskers, WELL is a revolution.">But well.</p>
+
+  <p class="ivy-line">I curled closer.</p>
+
+  <p class="ivy-line">There will be doctors.</p>
+  <p class="ivy-line">There will be recovery.</p>
+  <p class="ivy-line ivy-revise" data-replace="Pain will try to stage a comeback tour. Spoiler: I’ll sabotage it.">There will be days when pain returns and tries to steal the narrative.</p>
+
+  <p class="ivy-line ivy-interrupt">But today is not that day.</p>
+
+  <p class="ivy-line">Today is for chocolate cubes.</p>
+  <p class="ivy-line">For browsing shiny things.</p>
+  <p class="ivy-line">For doing dishes later.</p>
+  <p class="ivy-line ivy-revise" data-replace="For honoring survival like the epic saga it is.">For honoring the fact that surviving this long took bravery.</p>
+
+  <p class="ivy-line">I will continue to guard the threshold.</p>
+  <p class="ivy-line">I will nap strategically.</p>
+  <p class="ivy-line ivy-revise" data-replace="And I will claw the calendar if they forget to rest.">I will remind my human when it is time to rest.</p>
+
+  <p class="ivy-line">This is my job.</p>
+  <p class="ivy-line">This is my house.</p>
+  <p class="ivy-line">And this chapter?</p>
+  <p class="ivy-line ivy-interrupt"><strong>Approved.</strong></p>
+
+  <p class="ivy-line ivy-interrupt">🐾 Ivy Willow Harper</p>
+
+</article>
+
+
+
+    <footer class="post-footer">
+      <img src="/assets/images/harperville-logo.png" alt="Harperville Logo" class="footer-sig">
+      <p>END OF LOG</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const moodBox = document.querySelector('.mood-box');
+      const display = document.getElementById('mood-display');
+
+      if (moodBox) {
+        const rating = parseInt(moodBox.getAttribute('data-rating'));
+        let emoji = "😐";
+        if (rating >= 1 && rating <= 3) emoji = "💀 (Survival Mode)";
+        else if (rating >= 4 && rating <= 5) emoji = "☁️ (Foggy)";
+        else if (rating >= 6 && rating <= 7) emoji = "🏗️ (Building)";
+        else if (rating >= 8 && rating <= 9) emoji = "⚡ (Charged)";
+        else if (rating === 10) emoji = "🧘 (FUCKIN ZEN)";
+        display.innerText = rating + "/10 " + emoji;
+      }
+
+      /* Ivy paragraph entrance animation */
+      const ivyParagraphs = document.querySelectorAll('.ivy-mode p, .ivy-mode blockquote');
+      ivyParagraphs.forEach((el, index) => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          el.style.opacity = 1;
+          el.style.transform = 'translateY(0)';
+        }, 150 * index);
+      });
+    });
+  </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lines = document.querySelectorAll('.ivy-mode .ivy-line');
+  let currentLine = 0;
+
+  const cursor = document.createElement('span');
+  cursor.className = 'ivy-cursor';
+
+  lines.forEach(line => {
+    line.dataset.text = line.textContent;
+    line.textContent = '';
+    line.style.visibility = 'hidden';
+  });
+
+  function typeLine(line, callback) {
+  line.style.visibility = 'visible';
+  let i = 0;
+  const text = line.dataset.text;
+  const replacement = line.dataset.replace;
+
+  line.appendChild(cursor);
+
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      cursor.insertAdjacentText('beforebegin', text.charAt(i));
+      i++;
+    } else {
+      clearInterval(interval);
+
+      // If Ivy wants to revise herself
+      if (replacement) {
+        setTimeout(() => backspaceLine(line, replacement, callback), 900);
+      } else {
+        cursor.remove();
+        callback();
+      }
+    }
+  }, 45 + Math.random() * 30);
+}
+
+function backspaceLine(line, replacement, callback) {
+  let content = line.textContent;
+  let i = content.length;
+
+  const erase = setInterval(() => {
+    if (i > 0) {
+      line.textContent = content.slice(0, i - 1);
+      i--;
+    } else {
+      clearInterval(erase);
+      setTimeout(() => retypeReplacement(line, replacement, callback), 600);
+    }
+  }, 35);
+}
+
+function retypeReplacement(line, replacement, callback) {
+  let i = 0;
+  line.appendChild(cursor);
+
+  const interval = setInterval(() => {
+    if (i < replacement.length) {
+      cursor.insertAdjacentText('beforebegin', replacement.charAt(i));
+      i++;
+    } else {
+      clearInterval(interval);
+      cursor.remove();
+      callback();
+    }
+  }, 55);
+}
+
+
+  function nextLine() {
+    if (currentLine < lines.length) {
+      typeLine(lines[currentLine], () => {
+        currentLine++;
+        setTimeout(nextLine, 1200); // Ivy pause between thoughts
+      });
+    }
+  }
+
+  setTimeout(nextLine, 800); // initial dramatic delay
+});
+</script>
+
+
+</body>
+</html>
