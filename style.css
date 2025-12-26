@@ -461,7 +461,7 @@ body.cinematic-lock {
 
 /* Icon styling — matches Vault energy */
 .possibilities-card i {
-  color: gold;
+  color: rgba(255, 30, 0, 0.863);
   filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
 }
 /* Possibilities card icon — force render */
@@ -1122,6 +1122,22 @@ html, body {
     font-family: monospace;
     font-size: 0.7rem;
     color: var(--elphaba-green);
+    margin: 0;
+}
+/* The Glowing Red Dot (Annoyed Ivy) */
+.ivy-eye-glow-dot--ruby {
+    width: 8px;
+    height: 8px;
+    background-color: var(--ruby-slipper);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--ruby-slipper);
+    animation: blink-eye 4s infinite;
+}
+
+.status-blink--ruby {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: var(--ruby-slipper);
     margin: 0;
 }
 
