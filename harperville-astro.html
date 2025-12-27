@@ -57,8 +57,14 @@
     <section class="bio-container astro-wrap">
       <h1 class="bio-title"><span class="gold-pulse">HARPERVILLE ASTRO PORTAL</span></h1>
       <p class="bio-text">
-        Enter your birth data to generate a natal chart on a trusted chart engine, then return here for Ivy Willow’s weekly transit briefing.
-      </p>
+  Enter your birth data to begin a natal chart on a trusted astrology platform, then return here to translate the cosmos with Ivy Willow.
+</p>
+<ol class="astro-small" style="margin-top:.5rem;">
+  <li>Enter your birth date, time, and birth town.</li>
+  <li>Submit the form on Astro.com.</li>
+  <li>Select “Chart Drawing” or “Extended Chart Selection.”</li>
+  <li>Return here and enter your Sun, Moon, and Rising.</li>
+</ol>
 
       <div class="astro-cardish">
         <h3 class="bio-title" style="margin-top:0;">1) Birth data input</h3>
@@ -83,7 +89,7 @@
 
           <div class="astro-col-12">
             <label class="astro-label" for="birth-place">Place of birth</label>
-            <input class="astro-input" id="birth-place" name="birth-place" type="text" placeholder="City, State/Region, Country (e.g., Grand Junction, CO, USA)" required />
+            <input class="astro-input" id="birth-place" name="birth-place" type="text" placeholder="City, State/Region, Country (e.g., Westfield, IN USA)" required />
             <div class="astro-small">Tip: use the most official spelling your birthplace uses.</div>
           </div>
 
@@ -110,7 +116,7 @@
             <div><strong>Chart link</strong></div>
             <div><a id="chart-link" href="#" target="_blank" rel="noopener">Open chart generator</a></div>
 <p class="astro-small" style="margin-top: 0.5rem;">
-  🐾 Your chart opens on Astro‑Seek in a new tab. Return here to translate the cosmos into meaning.
+  🐾 <strong><em>Your chart opens on Astro.com in a new tab. Return here to translate the cosmos into meaning.</em></strong>
 </p>
 
             <div><strong>Birth data</strong></div>
@@ -241,27 +247,24 @@
   // =========================
   const savedBig3 = loadBig3();
   if (savedBig3) {
-    if (sunInput) sunInput.value = savedBig3.sun || "";
-    if (moonInput) moonInput.value = savedBig3.moon || "";
-    if (risingInput) risingInput.value = savedBig3.rising || "";
+    sunInput.value = savedBig3.sun || "";
+    moonInput.value = savedBig3.moon || "";
+    risingInput.value = savedBig3.rising || "";
 
-    if (ivyBriefing) {
-      ivyBriefing.textContent =
-        `Saved chart detected: Sun ${savedBig3.sun || "?"}, Moon ${savedBig3.moon || "?"}, Rising ${savedBig3.rising || "?"}. Ivy Willow is on standby.`;
-    }
+    ivyBriefing.textContent =
+      `Saved chart detected: Sun ${savedBig3.sun || "?"}, Moon ${savedBig3.moon || "?"}, Rising ${savedBig3.rising || "?"}. Ivy Willow is on standby.`;
   }
 
   // =========================
   // Auto‑Save on Input
   // =========================
   [sunInput, moonInput, risingInput].forEach(el => {
-    if (!el) return;
     el.addEventListener("input", saveBig3);
     el.addEventListener("change", saveBig3);
   });
 
   // =========================
-  // Birth Chart Generator
+  // Birth Chart Generator (Astro.com)
   // =========================
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -270,26 +273,18 @@
     const time = document.getElementById('birth-time').value || (timeUnknown.checked ? '12:00' : '');
     const place = document.getElementById('birth-place').value.trim();
 
-    const [year, month, day] = date.split("-");
-    const safeTime = time || "12:00";
-    const [hour, minute] = safeTime.split(":");
-
-    const url =
-  `https://horoscopes.astro-seek.com/birth-chart-horoscope-online` +
-  `?narozeni_den=${day}` +
-  `&narozeni_mesic=${month}` +
-  `&narozeni_rok=${year}` +
-  `&narozeni_hodina=${hour}` +
-  `&narozeni_minuta=${minute}` +
-  `&narozeni_mesto=${encodeURIComponent(place)}` +
-  `&house_system=placidus` +
-  `&zverokruh=tropical`;
-
+    // Astro.com guest birth‑data entry page
+    const url = "https://www.astro.com/cgi/ade.cgi?ession=0";
 
     chartLink.href = url;
-    chartLink.textContent = 'Open natal chart generator';
+    chartLink.textContent = "Open Astro.com birth data entry";
 
-    birthSummary.textContent = summaryText({ date, time: time || 'Unknown', place });
+    birthSummary.textContent = summaryText({
+      date,
+      time: time || 'Unknown',
+      place
+    });
+
     results.classList.add('open');
     results.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
@@ -350,6 +345,7 @@
     });
   }
 </script>
+
 
 </body>
 </html>
