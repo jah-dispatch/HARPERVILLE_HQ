@@ -183,6 +183,47 @@ body.cinematic-lock {
         background-position: 200% center;
     }
 }
+/* More text effects */
+
+.ruby-crust-text {
+  /* The Ruby Gradient Stack */
+  background: linear-gradient(
+    to right,
+    #8b0000,   /* Deep Ruby */
+    #ff4d6d,   /* Sparkle Pink */
+    #b22222,   /* Firebrick Core */
+    #ffccd5,   /* Soft Glint */
+    #8b0000    /* Back to Ruby */
+  );
+
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: ruby-sparkle 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 64, 64, 0.4));
+
+  display: inline-block;
+  position: relative;
+}
+
+/* Sparkle Animation */
+@keyframes ruby-sparkle {
+  0% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 8px rgba(255, 64, 64, 0.4));
+  }
+  50% {
+    background-position: 100% center;
+    filter: drop-shadow(0 0 12px rgba(255, 128, 128, 0.6));
+  }
+  100% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 8px rgba(255, 64, 64, 0.4));
+  }
+}
+
+
 /* The Button: Glassmorphism */
 .btn-sovereign {
     text-decoration: none;
