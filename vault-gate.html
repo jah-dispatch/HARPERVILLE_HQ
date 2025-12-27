@@ -9,22 +9,37 @@
 </head>
 <body class="cinematic-lock">
   <div class="container">
-    <h1 class="gold-pulse">VAULT ACCESS REQUIRED</h1>
-    <p class="subtitle">Answer the riddle to proceed...</p>
+  <h1 class="gold-pulse">VAULT ACCESS REQUIRED</h1>
+  <p class="subtitle">Answer the riddle to proceed...</p>
 
-    <div id="riddle-box">
-      <p id="riddle-question"></p>
-      <input type="text" id="riddle-answer" placeholder="Type your answer here">
-      <br>
-      <button class="btn-sovereign" onclick="checkAnswer()">Submit</button>
+  <div id="riddle-box">
+    <p id="riddle-question"></p>
+
+    <div class="vault-input-wrap">
+      <i class="fa-solid fa-key vault-input-icon"></i>
+      <input type="text" id="riddle-answer" placeholder="Speak the answer…well, type it…">
     </div>
+
+    <br>
+    <button class="btn-sovereign" onclick="checkAnswer()">Submit</button>
   </div>
+</div>
+
 
   <script>
     const riddles = [
       { q: "Which direction in Oz is Harperville™ HQ located--North, South, East, West?", a: "west" },
       { q: "Who is the Harperville™ System Oracle?", a: "ivy" },
       { q: "What is Jack's middle name?", a: "aspen" },
+      { q: "What is the name of the Harperville™ Blog?", a: "the ledger" },
+      { q: "What year was Harperville™ Established?", a: "2025" },
+      { q: "What is Jack's choice of beverage?", a: "espresso" },
+      { q: "What methodology does Jack rely on for life upgrades or important changes?", a: "astrology" },
+      { q: "What month was Jack legally implemented?", a: "july" },
+      { q: "If you were stuck on the side of the road, which feline companion would be judging you from the rear window?", a: "ivy" },
+      { q: "Name Jack's favorite gemstone.", a: "emerald" },
+      { q: "Who is the TRUE Guardian of Order in Harperville™?", a: "ivy" },
+      { q: "Who's Jack's favorite musical artist?", a: "taylor swift" },
       { q: "What is Jack's nationality?", a: "ozian" }
     ];
 
