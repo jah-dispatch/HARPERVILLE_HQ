@@ -222,6 +222,43 @@ body.cinematic-lock {
     filter: drop-shadow(0 0 8px rgba(255, 64, 64, 0.4));
   }
 }
+.emerald-crust-text {
+  /* The Emerald Gradient Stack */
+  background: linear-gradient(
+    to right,
+    #014421,   /* Deep Emerald */
+    #2ecc71,   /* Bright Facet */
+    #0b6623,   /* Core Green */
+    #b6fcd5,   /* Soft Glint */
+    #014421    /* Back to Emerald */
+  );
+
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: emerald-sparkle 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.45));
+
+  display: inline-block;
+  position: relative;
+}
+
+/* Sparkle Animation */
+@keyframes emerald-sparkle {
+  0% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.45));
+  }
+  50% {
+    background-position: 100% center;
+    filter: drop-shadow(0 0 12px rgba(120, 255, 190, 0.65));
+  }
+  100% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.45));
+  }
+}
 
 
 /* The Button: Glassmorphism */
