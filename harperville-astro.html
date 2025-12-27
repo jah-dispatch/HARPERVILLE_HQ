@@ -275,16 +275,16 @@
     const [hour, minute] = safeTime.split(":");
 
     const url =
-      `https://horoscopes.astro-seek.com/birth-chart-horoscope-online` +
-      `?narozeni_den=${day}` +
-      `&narozeni_mesic=${month}` +
-      `&narozeni_rok=${year}` +
-      `&narozeni_hodina=${hour}` +
-      `&narozeni_minuta=${minute}` +
-      `&narozeni_mesto_hidden=${encodeURIComponent(place)}` +
-      `&house_system=placidus` +
-      `&zverokruh=tropical` +
-      `&tolerance=1`;
+  `https://horoscopes.astro-seek.com/birth-chart-horoscope-online` +
+  `?narozeni_den=${day}` +
+  `&narozeni_mesic=${month}` +
+  `&narozeni_rok=${year}` +
+  `&narozeni_hodina=${hour}` +
+  `&narozeni_minuta=${minute}` +
+  `&narozeni_mesto=${encodeURIComponent(place)}` +
+  `&house_system=placidus` +
+  `&zverokruh=tropical`;
+
 
     chartLink.href = url;
     chartLink.textContent = 'Open natal chart generator';
