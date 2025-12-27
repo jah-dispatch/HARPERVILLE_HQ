@@ -111,6 +111,27 @@
   <img src="/assets/images/harperville-logo.png" alt="Harperville Logo" class="footer-sig">
 </footer>  
   </main>
+<div id="cookie-notice" class="cookie-notice hidden">
+  <p>
+    Harperville™ uses third‑party services (media embeds, community tools) that may set cookies as part of their normal operation.
+    No advertising or tracking cookies are set directly by Harperville™.
+  </p>
+  <button id="cookie-accept" class="btn-sovereign">Understood</button>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const notice = document.getElementById("cookie-notice");
+    const acceptBtn = document.getElementById("cookie-accept");
 
+    if (!localStorage.getItem("harpervilleCookiesAcknowledged")) {
+      notice.classList.remove("hidden");
+    }
+
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("harpervilleCookiesAcknowledged", "true");
+      notice.classList.add("hidden");
+    });
+  });
+</script>
 </body>
 </html>
