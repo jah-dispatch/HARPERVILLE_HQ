@@ -2013,3 +2013,16 @@ html, body {
   border-radius: 6px;
   background: #000;
 }
+/* ============================================================
+   HARPERVILLE ASTROLOGY PORTAL
+   ============================================================ */
+.astro-card {
+  grid-column: span 1;
+  grid-row: span 1;
+  border: 1px solid var(--oz-gold);
+}
+
+.astro-card:hover {
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
